@@ -1,0 +1,25 @@
+
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-md navbar-dark bg-primary">
+
+  <!-- Navbar brand -->
+  <logo><a class="navbar-brand" [routerLink]="'/'">Energy</a></logo>
+
+  <!-- Collapsible content -->
+  <links>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="'/consumer/home'" mdbRippleRadius>Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link waves-light" [routerLink]="'/login'" mdbRippleRadius>Log In</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </links>
+  <!-- Collapsible content -->
+
+</mdb-navbar>
+<!--/.Navbar-->
