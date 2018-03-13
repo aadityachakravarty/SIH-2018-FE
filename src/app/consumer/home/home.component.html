@@ -1,7 +1,51 @@
-<div class="container">
-  <br>
-  <p>
-    home works!
-  </p>
+<div class="hero">
+<div class="back">
+    <span id="grad"></span>
+    <div style="overflow: hidden; height: 800px; width: 100%; position: relative"><span id="white"></span></div>
+</div>    
 
+<div class="gMap">
+<agm-map [latitude]="lat" [longitude]="lng" style="height: 100%">
+  <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-info-window>
+        <p>You are here!</p>
+      </agm-info-window></agm-marker>
+</agm-map>
+        
 </div>
+</div>
+<div class="userSection">
+    <div class="newCon">
+        <div class="myBox">
+            <h1>New Connection</h1>
+            <div class="img"></div>
+            <p>Request a new Connection at your location
+            </p>
+        </div>
+    </div>
+    <div class="updateCon">
+        <div class="myBox">
+            <h1>Transfer Connection</h1>
+            <div class="img"></div>
+            <p>Edit your personel detail for existing connection
+            </p>
+        </div>
+    </div>
+    <div class="deaCon">
+        <div class="myBox">
+            <h1>Deactivate Connection</h1>
+            <div class="img"></div>
+            <p>Request to discontinue existing connection
+            </p>
+        </div>
+    </div>
+    </div>
+    <div class="track" id="grad">
+        <div class="trackUser">
+            <i class=""></i>
+            <p>Track user</p>
+            <button type="button" class="blueButton">Track</button>
+        </div>
+    </div>
+    <div class="userApp"></div>
+    <div class="care"></div>

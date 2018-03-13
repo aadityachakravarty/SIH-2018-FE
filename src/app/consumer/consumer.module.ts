@@ -10,12 +10,16 @@ import { ClosingApplicationComponent } from './application/closing-application/c
 import { YourApplicationsComponent } from './application/your-applications/your-applications.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConsumerRoutingModule } from './consumer-routing.module';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
     CommonModule,
     MDBBootstrapModule.forRoot(),
-    ConsumerRoutingModule
+    ConsumerRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
+    })
   ],
   declarations: [
     HomeComponent,
