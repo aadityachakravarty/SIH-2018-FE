@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +7,17 @@ import { Component } from '@angular/core';
 })
 
 export class HomeComponent implements OnInit {
-public map: position = { lat: 0, lng: 0 };
     lat: number;
     lng: number;
+    dir: any;
+    
+    markers: marker[] = [
+        {
+            name:'one',
+            lat: 29.489934,
+            lng: 79.327594
+        }
+    ]
 
   constructor() { }
 
@@ -28,5 +35,21 @@ public map: position = { lat: 0, lng: 0 };
        });
      }
      }
+     
+     public clickedMarker(markers:marker, index:number){
+        this.getDirection(markers.lat, markers.lng);
+     }
+     
+     public getDirection(latitude: number, longitude: number) {
+    this.dir = {
+      origin: { lat: this.lat, lng: this.lng },
+      destination: { lat: latitude, lng: longitude }
+    }
+  }
 }
 
+interface marker{
+    name?: string;
+    lat: number;
+    lng: number;
+}

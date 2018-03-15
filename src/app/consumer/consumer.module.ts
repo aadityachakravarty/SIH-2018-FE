@@ -11,6 +11,7 @@ import { YourApplicationsComponent } from './application/your-applications/your-
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConsumerRoutingModule } from './consumer-routing.module';
 import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { AgmCoreModule } from '@agm/core';
     ConsumerRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
-    })
+    }),
+    AgmDirectionModule
   ],
   declarations: [
     HomeComponent,
