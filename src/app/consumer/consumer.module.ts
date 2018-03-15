@@ -15,10 +15,12 @@ import { AgmDirectionModule } from 'agm-direction';
 import { ChangeNameComponent } from './application/update-application/change-name/change-name.component';
 import { ChangeLoadComponent } from './application/update-application/change-load/change-load.component';
 import { CloseApplicationComponent } from './application/update-application/close-application/close-application.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     ConsumerRoutingModule,
     AgmCoreModule.forRoot({
