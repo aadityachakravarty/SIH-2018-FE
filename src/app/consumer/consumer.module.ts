@@ -12,6 +12,9 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConsumerRoutingModule } from './consumer-routing.module';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import { ChangeNameComponent } from './application/update-application/change-name/change-name.component';
+import { ChangeLoadComponent } from './application/update-application/change-load/change-load.component';
+import { CloseApplicationComponent } from './application/update-application/close-application/close-application.component';
 
 @NgModule({
   imports: [
@@ -31,7 +34,10 @@ import { AgmDirectionModule } from 'agm-direction';
     NewApplicationComponent,
     UpdateApplicationComponent,
     ClosingApplicationComponent,
-    YourApplicationsComponent
+    YourApplicationsComponent,
+    ChangeNameComponent,
+    ChangeLoadComponent,
+    CloseApplicationComponent
   ],
   exports: [
     HomeComponent,
