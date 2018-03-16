@@ -27,11 +27,27 @@
       <label for="email">E-mail</label>
     </div>
 
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="permanentAddress" formControlName="permanentAddress" class="form-control" mdbActive>
-      <label for="permanentAddress">Permanent Address</label>
+    <br>
+
+    <div class="row">
+      <!--Permanent Address Dropdown-->
+      <div class="col-sm-3">
+        <p>Permanent Adderess</p>
+      </div>
+      <div class="col-sm-9">
+        <div class="btn-group btn-block" dropdown>
+          <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
+            {{permanentAddressDropdown}}
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+            <a class="dropdown-item" (click)="onPermanentAddress(permanentAddressValue)">{{permanentAddressValue}}</a>
+          </div>
+        </div>
+      </div>
+      <!--/Permanent Address Dropdown-->
     </div>
+
+    <br>
 
     <div class="md-form">
       <i class="fa fa-user prefix grey-text"></i>
@@ -60,7 +76,7 @@
         <p>Connection Category</p>
       </div>
       <div class="col-sm-3">
-        <div class="btn-group" dropdown>
+        <div class="btn-group btn-block" dropdown>
           <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
             {{connectionCategoryDropdown}}
           </button>
@@ -78,7 +94,7 @@
         <p>Connection Type</p>
       </div>
       <div class="col-sm-3">
-        <div class="btn-group" dropdown>
+        <div class="btn-group btn-block" dropdown>
           <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
             {{connectionTypeDropdown}}
           </button>
@@ -100,7 +116,7 @@
         <p>Voltage Supply</p>
       </div>
       <div class="col-sm-3">
-        <div class="btn-group" dropdown>
+        <div class="btn-group btn-block" dropdown>
           <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
             {{voltageSupplyDropdown}}
           </button>

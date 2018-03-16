@@ -11,6 +11,8 @@ export class NewApplicationComponent implements OnInit {
   connectionCategoryDropdown = 'Select Option';
   connectionTypeDropdown = 'Select Option';
   voltageSupplyDropdown = 'Select Option';
+  permanentAddressDropdown = 'Select Address';
+  permanentAddressValue = 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana';
 
   constructor() { }
 
@@ -27,6 +29,13 @@ export class NewApplicationComponent implements OnInit {
       'connectionCategory': new FormControl(null),
       'connectionType': new FormControl(null),
       'voltageSupply': new FormControl(null)
+    });
+  }
+
+  onPermanentAddress(data: string) {
+    this.permanentAddressDropdown = data;
+    this.newApplicationForm.patchValue({
+      'permanentAddress': data
     });
   }
 

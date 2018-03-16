@@ -6,6 +6,7 @@ import { UpdateApplicationComponent } from './application/update-application/upd
 import { ChangeNameComponent } from './application/update-application/change-name/change-name.component';
 import { ChangeLoadComponent } from './application/update-application/change-load/change-load.component';
 import { CloseApplicationComponent } from './application/update-application/close-application/close-application.component';
+import { YourApplicationsComponent } from './application/your-applications/your-applications.component';
 
 const consumerRoutes: Routes = [
   { path: 'consumer/home', component: HomeComponent },
@@ -14,7 +15,9 @@ const consumerRoutes: Routes = [
       { path: 'change-name', component: ChangeNameComponent },
       { path: 'change-load', component: ChangeLoadComponent },
       { path: 'close-application', component: CloseApplicationComponent }
-    ] }
+    ]
+  },
+  { path: 'consumer/your-applications', component: YourApplicationsComponent}
 ]
 
 @NgModule({
