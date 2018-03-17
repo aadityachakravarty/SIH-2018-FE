@@ -7,10 +7,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Applicant's Name:</strong>
+        <strong>Applicant's Name:</strong>
       </div>
       <div class="col-sm-6">
-        Anshul Sharma
+        {{newApplicationPreview.applicantName}}
       </div>
     </div>
     <!--/Row-->
@@ -20,10 +20,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Father's Name/ Husband's Name:</strong>
+        <strong>Father's Name/ Husband's Name:</strong>
       </div>
       <div class="col-sm-6">
-        Satish Kumar
+        {{newApplicationPreview.fatherName_husbandName}}
       </div>
     </div>
     <!--/Row-->
@@ -33,10 +33,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Mobile Number:</strong>
+        <strong>Aadhar Number:</strong>
       </div>
       <div class="col-sm-6">
-        9996999200
+        {{newApplicationPreview.aadharNumber}}
       </div>
     </div>
     <!--/Row-->
@@ -46,10 +46,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">E-mail:</strong>
+        <strong>Mobile Number:</strong>
       </div>
       <div class="col-sm-6">
-        anshulsharma0888@gmail.com
+        {{newApplicationPreview.mobileNumber}}
       </div>
     </div>
     <!--/Row-->
@@ -59,10 +59,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Permanent Address:</strong>
+        <strong>E-mail:</strong>
       </div>
       <div class="col-sm-6">
-        L-482, Ram Lal Chowk, Model Town, Panipat, Haryana
+        {{newApplicationPreview.email}}
       </div>
     </div>
     <!--/Row-->
@@ -72,10 +72,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Connection Address:</strong>
+        <strong>Permanent Address:</strong>
       </div>
       <div class="col-sm-6">
-        L-482, Ram Lal Chowk, Model Town, Panipat, Haryana
+        {{newApplicationPreview.permanentAddress}}
       </div>
     </div>
     <!--/Row-->
@@ -85,10 +85,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Connection Address Land Registration Number:</strong>
+        <strong>Connection Address:</strong>
       </div>
       <div class="col-sm-6">
-        ASD33434A34RLW
+        {{newApplicationPreview.connectionAddress}}
       </div>
     </div>
     <!--/Row-->
@@ -98,10 +98,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Load Demand:</strong>
+        <strong>Connection Address Land Registration Number:</strong>
       </div>
       <div class="col-sm-6">
-        4 KW
+        {{newApplicationPreview.connectionAddressLandRegistrationNumber}}
       </div>
     </div>
     <!--/Row-->
@@ -111,10 +111,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Connection Category:</strong>
+        <strong>Load Demand:</strong>
       </div>
       <div class="col-sm-6">
-        Domestic Supply (DS)
+        {{newApplicationPreview.loadDemand}} KW
       </div>
     </div>
     <!--/Row-->
@@ -124,10 +124,10 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Connection Type:</strong>
+        <strong>Connection Category:</strong>
       </div>
       <div class="col-sm-6">
-        Permanent
+        {{newApplicationPreview.connectionCategory}}
       </div>
     </div>
     <!--/Row-->
@@ -137,16 +137,35 @@
     <!--Row-->
     <div class="row">
       <div class="col-sm-4 offset-sm-2">
-        <strong class="">Voltage Supply:</strong>
+        <strong>Connection Type:</strong>
       </div>
       <div class="col-sm-6">
-        3 Phase
+        {{newApplicationPreview.connectionType}}
       </div>
     </div>
     <!--/Row-->
 
     <br>
 
-    <a class="btn btn-primary btn-lg waves-light" role="button" mdbRippleRadius>Learn more</a>
+    <!--Row-->
+    <div class="row">
+      <div class="col-sm-4 offset-sm-2">
+        <strong>Voltage Supply:</strong>
+      </div>
+      <div class="col-sm-6">
+        {{newApplicationPreview.voltageSupply}}
+      </div>
+    </div>
+    <!--/Row-->
+    <br>
+    <hr>
+    <div class="row">
+      <div class="col-sm-2 offset-sm-3 my-3">
+        <button class="btn btn-md btn-block btn-success btn-lg waves-light" role="button" mdbRippleRadius>Submit</button>
+      </div>
+      <div class="col-sm-2 offset-sm-2 my-3">
+        <button class="btn btn-md btn-block btn-danger btn-lg waves-light" role="button" mdbRippleRadius>Edit</button>
+      </div>
+    </div>
   </div>
 </div>

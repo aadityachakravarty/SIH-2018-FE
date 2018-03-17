@@ -21,6 +21,7 @@ export class NewApplicationComponent implements OnInit {
     this.newApplicationForm = new FormGroup({
       'applicantName': new FormControl(null),
       'fatherName_husbandName': new FormControl(null),
+      'aadharNumber': new FormControl(null),
       'mobileNumber': new FormControl(null),
       'email': new FormControl(null),
       'permanentAddress': new FormControl(null),
