@@ -16,6 +16,8 @@ import { ChangeNameComponent } from './application/update-application/change-nam
 import { ChangeLoadComponent } from './application/update-application/change-load/change-load.component';
 import { CloseApplicationComponent } from './application/update-application/close-application/close-application.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ApplicationListComponent } from './application/update-application/application-list/application-list.component';
+import { NewApplicationPreviewComponent } from './application/new-application/new-application-preview/new-application-preview.component';
 
 @NgModule({
   imports: [
@@ -39,11 +41,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     YourApplicationsComponent,
     ChangeNameComponent,
     ChangeLoadComponent,
-    CloseApplicationComponent
+    CloseApplicationComponent,
+    ApplicationListComponent,
+    NewApplicationPreviewComponent
   ],
   exports: [
     HomeComponent,
     NewApplicationComponent
+  ],
+  providers: [
   ]
 })
 export class ConsumerModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-application',
@@ -14,7 +15,7 @@ export class NewApplicationComponent implements OnInit {
   permanentAddressDropdown = 'Select Address';
   permanentAddressValue = 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana';
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.newApplicationForm = new FormGroup({
@@ -62,6 +63,7 @@ export class NewApplicationComponent implements OnInit {
 
   onNewApplicationForm() {
     console.log(this.newApplicationForm);
+    this.router.navigate(['preview'], {relativeTo: this.route});
   }
 
 }

@@ -7,14 +7,20 @@ import { ChangeNameComponent } from './application/update-application/change-nam
 import { ChangeLoadComponent } from './application/update-application/change-load/change-load.component';
 import { CloseApplicationComponent } from './application/update-application/close-application/close-application.component';
 import { YourApplicationsComponent } from './application/your-applications/your-applications.component';
+import { ApplicationListComponent } from './application/update-application/application-list/application-list.component';
+import { NewApplicationPreviewComponent } from './application/new-application/new-application-preview/new-application-preview.component';
 
 const consumerRoutes: Routes = [
   { path: 'consumer/home', component: HomeComponent },
   { path: 'consumer/new-application', component: NewApplicationComponent },
+  { path: 'consumer/new-application/preview', component: NewApplicationPreviewComponent },
   { path: 'consumer/update-application', component: UpdateApplicationComponent, children: [
-      { path: 'change-name', component: ChangeNameComponent },
-      { path: 'change-load', component: ChangeLoadComponent },
-      { path: 'close-application', component: CloseApplicationComponent }
+      { path: 'change-name/list', component: ApplicationListComponent },
+      { path: 'change-name/list/:id', component: ChangeNameComponent },
+      { path: 'change-load/list', component: ApplicationListComponent },
+      { path: 'change-load/list/:id', component: ChangeLoadComponent },
+      { path: 'close-application/list', component: ApplicationListComponent },
+      { path: 'close-application/list/:id', component: CloseApplicationComponent }
     ]
   },
   { path: 'consumer/your-applications', component: YourApplicationsComponent}

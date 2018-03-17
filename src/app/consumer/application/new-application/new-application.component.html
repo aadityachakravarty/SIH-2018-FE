@@ -1,143 +1,149 @@
 <div class="container" style="margin-top: 15px;">
-  <p class="h3 text-left brown-text mb-4">New Application</p>
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <p class="h3 text-left brown-text mb-4">New Application</p>
 
-  <form [formGroup]="newApplicationForm" (ngSubmit)="onNewApplicationForm();">
+      <form [formGroup]="newApplicationForm" (ngSubmit)="onNewApplicationForm();">
 
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="applicantName" formControlName="applicantName" class="form-control" mdbActive>
-      <label for="applicantName">Applicant's Name</label>
-    </div>
+        <div class="md-form">
+          <i class="fa fa-user prefix grey-text"></i>
+          <input type="text" id="applicantName" formControlName="applicantName" class="form-control" mdbActive>
+          <label for="applicantName">Applicant's Name</label>
+        </div>
 
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="fatherName_husbandName" formControlName="fatherName_husbandName" class="form-control" mdbActive>
-      <label for="fatherName_husbandName">Father's Name/ Husband's Name</label>
-    </div>
+        <div class="md-form">
+          <i class="fa fa-user prefix grey-text"></i>
+          <input type="text" id="fatherName_husbandName" formControlName="fatherName_husbandName" class="form-control" mdbActive>
+          <label for="fatherName_husbandName">Father's Name/ Husband's Name</label>
+        </div>
 
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" mdbActive>
-      <label for="mobileNumber">Mobile Number</label>
-    </div>
+        <div class="md-form">
+          <i class="fa fa-mobile-phone prefix grey-text"></i>
+          <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control" mdbActive>
+          <label for="mobileNumber">Mobile Number</label>
+        </div>
 
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="email" formControlName="email" class="form-control" mdbActive>
-      <label for="email">E-mail</label>
-    </div>
+        <div class="md-form">
+          <i class="fa fa-envelope prefix grey-text"></i>
+          <input type="text" id="email" formControlName="email" class="form-control" mdbActive>
+          <label for="email">E-mail</label>
+        </div>
 
-    <br>
+        <br>
 
-    <div class="row">
-      <!--Permanent Address Dropdown-->
-      <div class="col-sm-3">
-        <p>Permanent Adderess</p>
-      </div>
-      <div class="col-sm-9">
-        <div class="btn-group btn-block" dropdown>
-          <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
-            {{permanentAddressDropdown}}
-          </button>
-          <div class="dropdown-menu dropdown-primary">
-            <a class="dropdown-item" (click)="onPermanentAddress(permanentAddressValue)">{{permanentAddressValue}}</a>
+        <div class="row">
+          <!--Permanent Address Dropdown-->
+          <div class="col-sm-6">
+            <p><i class="fa fa-address-book prefix grey-text" style="font-size: 32px;margin-right: 12px;"></i>Permanent Adderess</p>
+          </div>
+          <div class="col-sm-6">
+            <div class="btn-group btn-block" dropdown>
+              <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
+                {{permanentAddressDropdown}}
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" (click)="onPermanentAddress(permanentAddressValue)">{{permanentAddressValue}}</a>
+              </div>
+            </div>
+          </div>
+          <!--/Permanent Address Dropdown-->
+        </div>
+
+        <br>
+
+        <div class="md-form">
+          <i class="fa fa-address-book prefix grey-text"></i>
+          <input type="text" id="connectionAddress" formControlName="connectionAddress" class="form-control" mdbActive>
+          <label for="connectionAddress">Connection Address</label>
+        </div>
+
+        <div class="md-form">
+          <i class="fa fa-building prefix grey-text"></i>
+          <input type="text" id="connectionAddressLandRegistrationNumber" formControlName="connectionAddressLandRegistrationNumber" class="form-control" mdbActive>
+          <label for="connectionAddressLandRegistrationNumber">Connection Address Land Registration Number</label>
+        </div>
+
+        <div class="md-form">
+          <i class="fa fa-power-off prefix grey-text"></i>
+          <input type="text" id="loadDemand" formControlName="loadDemand" class="form-control" mdbActive>
+          <label for="loadDemand">Load Demand</label>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <!--Connection Category Dropdown-->
+          <div class="col-sm-6">
+            <p><i class="fa fa-plug prefix grey-text" style="font-size: 32px;margin-right: 12px;"></i>Connection Category</p>
+          </div>
+          <div class="col-sm-5">
+            <div class="btn-group btn-block" dropdown>
+              <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
+                {{connectionCategoryDropdown}}
+              </button>
+
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" (click)="onConnectionCategory('Domestic Supply (DS)')">Domestic Supply (DS)</a>
+                <a class="dropdown-item" (click)="onConnectionCategory('Non Domestic Supply (NDS)')">Non Domestic Supply (NDS)</a>
+              </div>
+            </div>
+          </div>
+          <!--/Connection Category Dropdown-->
+        </div>
+
+        <br>
+
+        <div class="row">
+          <!--Connection Type Dropdown-->
+          <div class="col-sm-6">
+            <p><i class="fa fa-adjust prefix grey-text" style="font-size: 32px;margin-right: 12px;"></i>Connection Type</p>
+          </div>
+          <div class="col-sm-5">
+            <div class="btn-group btn-block" dropdown>
+              <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
+                {{connectionTypeDropdown}}
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" (click)="onConnectionType('Permanent')">Permanent</a>
+                <a class="dropdown-item" (click)="onConnectionType('Temporary')">Temporary</a>
+              </div>
+            </div>
+          </div>
+          <!--/Connection Type Dropdown-->
+
+        </div>
+
+        <br>
+
+        <div class="row">
+          <!--Voltage Supply Dropdown-->
+          <div class="col-sm-6">
+            <p><i class="fa fa-tachometer prefix grey-text" style="font-size: 32px;margin-right: 12px;"></i>Voltage Supply</p>
+          </div>
+          <div class="col-sm-5">
+            <div class="btn-group btn-block" dropdown>
+              <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
+                {{voltageSupplyDropdown}}
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" (click)="onVoltageSupply('1 Phase')">1 Phase</a>
+                <a class="dropdown-item" (click)="onVoltageSupply('3 Phase')">3 Phase</a>
+                <a class="dropdown-item" (click)="onVoltageSupply('11 KV')">11 KV</a>
+              </div>
+            </div>
+          </div>
+          <!--/Voltage Supply Dropdown-->
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5 offset-sm-3">
+            <button type="submit" class="btn btn-md btn-block btn-success waves-light" mdbRippleRadius>Success</button>
           </div>
         </div>
-      </div>
-      <!--/Permanent Address Dropdown-->
+
+      </form>
     </div>
-
-    <br>
-
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="connectionAddress" formControlName="connectionAddress" class="form-control" mdbActive>
-      <label for="connectionAddress">Connection Address</label>
-    </div>
-
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="connectionAddressLandRegistrationNumber" formControlName="connectionAddressLandRegistrationNumber" class="form-control" mdbActive>
-      <label for="connectionAddressLandRegistrationNumber">Connection Address Land Registration Number</label>
-    </div>
-
-    <div class="md-form">
-      <i class="fa fa-user prefix grey-text"></i>
-      <input type="text" id="loadDemand" formControlName="loadDemand" class="form-control" mdbActive>
-      <label for="loadDemand">Load Demand</label>
-    </div>
-
-    <br>
-
-    <div class="row">
-
-      <!--Connection Category Dropdown-->
-      <div class="col-sm-3">
-        <p>Connection Category</p>
-      </div>
-      <div class="col-sm-3">
-        <div class="btn-group btn-block" dropdown>
-          <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
-            {{connectionCategoryDropdown}}
-          </button>
-
-          <div class="dropdown-menu dropdown-primary">
-            <a class="dropdown-item" (click)="onConnectionCategory('Domestic Supply (DS)')">Domestic Supply (DS)</a>
-            <a class="dropdown-item" (click)="onConnectionCategory('Non Domestic Supply (NDS)')">Non Domestic Supply (NDS)</a>
-          </div>
-        </div>
-      </div>
-      <!--/Connection Category Dropdown-->
-
-      <!--Connection Type Dropdown-->
-      <div class="col-sm-3">
-        <p>Connection Type</p>
-      </div>
-      <div class="col-sm-3">
-        <div class="btn-group btn-block" dropdown>
-          <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
-            {{connectionTypeDropdown}}
-          </button>
-          <div class="dropdown-menu dropdown-primary">
-            <a class="dropdown-item" (click)="onConnectionType('Permanent')">Permanent</a>
-            <a class="dropdown-item" (click)="onConnectionType('Temporary')">Temporary</a>
-          </div>
-        </div>
-      </div>
-      <!--/Connection Type Dropdown-->
-
-    </div>
-
-    <br>
-
-    <div class="row">
-      <!--Voltage Supply Dropdown-->
-      <div class="col-sm-3">
-        <p>Voltage Supply</p>
-      </div>
-      <div class="col-sm-3">
-        <div class="btn-group btn-block" dropdown>
-          <button dropdownToggle type="button" class="btn btn-block btn-primary btn-md dropdown-toggle waves-light" mdbRippleRadius>
-            {{voltageSupplyDropdown}}
-          </button>
-          <div class="dropdown-menu dropdown-primary">
-            <a class="dropdown-item" (click)="onVoltageSupply('1 Phase')">1 Phase</a>
-            <a class="dropdown-item" (click)="onVoltageSupply('3 Phase')">3 Phase</a>
-            <a class="dropdown-item" (click)="onVoltageSupply('11 KV')">11 KV</a>
-          </div>
-        </div>
-      </div>
-      <!--/Voltage Supply Dropdown-->
-    </div>
-
-    <hr>
-
-    <div class="row">
-      <div class="col-sm-3 offset-sm-5">
-        <button type="submit" class="btn btn-md btn-success waves-light" mdbRippleRadius>Success</button>
-      </div>
-    </div>
-
-  </form>
-
+  </div>
 </div>
