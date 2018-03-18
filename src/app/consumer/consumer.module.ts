@@ -18,13 +18,15 @@ import { CloseApplicationComponent } from './application/update-application/clos
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApplicationListComponent } from './application/update-application/application-list/application-list.component';
 import { NewApplicationPreviewComponent } from './application/new-application/new-application-preview/new-application-preview.component';
+import { BodyComponent } from './application/update-application/body/body.component';
+import { ApplicationComponent } from './application/your-applications/application/application.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    ConsumerRoutingModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    ConsumerRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
     }),
@@ -43,7 +45,9 @@ import { NewApplicationPreviewComponent } from './application/new-application/ne
     ChangeLoadComponent,
     CloseApplicationComponent,
     ApplicationListComponent,
-    NewApplicationPreviewComponent
+    NewApplicationPreviewComponent,
+    BodyComponent,
+    ApplicationComponent
   ],
   exports: [
     HomeComponent,

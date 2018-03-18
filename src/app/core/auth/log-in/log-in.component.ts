@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-log-in',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInComponent implements OnInit {
 
-  constructor() { }
+  name: string;
 
+  constructor() { }
   ngOnInit() {
   }
+  @ViewChild('content') public contentModal;
 
+  show(value: string) {
+    this.name = value;
+    this.contentModal.show();
+  }
 }

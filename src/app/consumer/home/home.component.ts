@@ -1,30 +1,37 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+
+interface Marker {
+  name?: string;
+  lat: number;
+  lng: number;
+}
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-
 export class HomeComponent implements OnInit {
     lat: number;
     lng: number;
     dir: any;
-    
-    markers: marker[] = [
+
+    markers: Marker[] = [
         {
-            name:'one',
+            name: 'one',
             lat: 29.489934,
             lng: 79.327594
         }
     ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.getUserLocation()
+    this.getUserLocation();
   }
-  
+
       private getUserLocation() {
      /// locate the user
      if (navigator.geolocation) {
@@ -35,21 +42,27 @@ export class HomeComponent implements OnInit {
        });
      }
      }
-     
-     public clickedMarker(markers:marker, index:number){
+
+     public clickedMarker(markers: Marker, index: number ) {
         this.getDirection(markers.lat, markers.lng);
      }
-     
+
      public getDirection(latitude: number, longitude: number) {
     this.dir = {
       origin: { lat: this.lat, lng: this.lng },
       destination: { lat: latitude, lng: longitude }
-    }
+    };
   }
+
+  onNewApplication() {
+      this.router.navigate(['consumer/new-application']);
+  }
+  onUpdateApplication() {
+      this.router.navigate(['consumer/update-application']);
+  }
+  onYourApplications() {
+      this.router.navigate(['consumer/your-applications']);
+  }
+
 }
 
-interface marker{
-    name?: string;
-    lat: number;
-    lng: number;
-}

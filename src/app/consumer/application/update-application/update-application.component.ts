@@ -19,6 +19,7 @@ export class UpdateApplicationComponent implements OnInit {
   onChangeName(data: string) {
     this.updateOptionDropdown = data;
     this.router.navigate(['change-name/list'], {relativeTo: this.route});
+    console.log(this.route);
   }
 
   onChangeLoad(data: string) {

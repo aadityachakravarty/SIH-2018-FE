@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UpdateApplication } from '../update-application.model';
+import { UpdateApplication } from '../../update-application/update-application.model';
 
 @Component({
-  selector: 'app-close-application',
-  templateUrl: './close-application.component.html',
-  styleUrls: ['./close-application.component.css']
+  selector: 'app-application',
+  templateUrl: './application.component.html',
+  styleUrls: ['./application.component.css']
 })
-export class CloseApplicationComponent implements OnInit {
+export class ApplicationComponent implements OnInit {
   closeConnectionData: UpdateApplication = {
     'applicationNumber': 'LJXSDHT9879SDAF8',
     'applicantName': 'Anshul Sharma',

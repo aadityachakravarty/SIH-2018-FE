@@ -3,7 +3,7 @@
 
     <div class="col-md-4 my-4" *ngFor="let application of yourApplicationsData; let i = index;">
       <!--Card-->
-      <div class="card card-cascade narrower">
+      <div class="card card-cascade narrower hoverable hm-zoom">
 
         <!--Card image-->
         <div class="view overlay hm-white-slight waves-light" mdbRippleRadius>
@@ -20,7 +20,7 @@
           <h4 class="card-title">{{application.name}}</h4>
           <!--Text-->
           <p class="card-text text-justify"><strong>Address:</strong> {{application.connectionAddress}}</p>
-          <a class="btn btn-md btn-unique waves-light" mdbRippleRadius>View Application</a>
+          <a class="btn btn-md btn-unique waves-light" (click)="onViewApplication(i);" mdbRippleRadius>View Application</a>
         </div>
         <!--/.Card content-->
 

@@ -7,12 +7,14 @@ import { LogInComponent } from './auth/log-in/log-in.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md/index';
 import { MainHomeComponent } from './main-home/main-home.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { CoreRoutingModule } from './core-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     MDBBootstrapModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CoreRoutingModule
   ],
   declarations: [
     HeaderComponent,
