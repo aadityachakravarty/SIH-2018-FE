@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NewApplication } from '../new-application.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-application-preview',
@@ -22,9 +23,17 @@ export class NewApplicationPreviewComponent implements OnInit {
     'connectionType': 'Permanent',
     'voltageSupply': '3 Phase'
   };
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  onEditApplication() {
+    this.router.navigate(['../'], {relativeTo: this.route});
+  }
+
+  onSubmitAppliation() {
+    this.router.navigate(['consumer/home']);
   }
 
 }
