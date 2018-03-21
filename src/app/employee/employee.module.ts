@@ -6,14 +6,16 @@ import { PriorityApplicationsComponent } from './applications/priority-applicati
 import { CompletedApplicationsComponent } from './applications/completed-applications/completed-applications.component';
 import { BaseMapComponent } from './base-map/base-map.component';
 import { RulesRegulationsComponent } from './rules-regulations/rules-regulations.component';
-import { ApplicationListComponent } from './applications/application-list/application-list.component';
 import { EmployeeHomeComponent } from './employee-home/employee-home.component';
 import { EmployeeRoutingModule } from './employee-routing.module';
+import { EmployeeApplicationsListComponent } from './applications/employee-applications-list/employee-applications-list.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md/index';
 
 @NgModule({
   imports: [
     CommonModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,
+    MDBBootstrapModule
   ],
   declarations: [
     NewApplicationsComponent,
@@ -22,8 +24,8 @@ import { EmployeeRoutingModule } from './employee-routing.module';
     CompletedApplicationsComponent,
     BaseMapComponent,
     RulesRegulationsComponent,
-    ApplicationListComponent,
-    EmployeeHomeComponent
+    EmployeeHomeComponent,
+    EmployeeApplicationsListComponent
   ]
 })
 export class EmployeeModule { }

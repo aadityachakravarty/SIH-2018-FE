@@ -1,1 +1,16 @@
-
+a.dropdown-item:hover {
+  background-color: #455a64 !important;
+  color: #ffffff;
+}
+a.dropdown-item:active {
+  background-color: #455a64 !important;
+  color: #ffffff;
+}
+a.dropdown-item:focus {
+  background-color: #455a64 !important;
+  color: #ffffff;
+}
+a.dropdown-item:visited {
+  background-color: #455a64 !important;
+  color: #ffffff;
+}
