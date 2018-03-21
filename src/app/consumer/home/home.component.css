@@ -37,7 +37,7 @@
 .hero .back span#white{
     width: 0;
     position: absolute;
-    top: 28vh;
+    top: 32vh;
     left: -5vh;
     height: 0;
     z-index: -4;

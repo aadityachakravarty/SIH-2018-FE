@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ConsumerModule } from './consumer/consumer.module';
 import { AppRoutingModule } from './app-routing.module';
+import { EmployeeModule } from './employee/employee.module';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     MDBBootstrapModule.forRoot(),
     CoreModule,
     ConsumerModule,
+    EmployeeModule,
     AppRoutingModule
   ],
   providers: [],
