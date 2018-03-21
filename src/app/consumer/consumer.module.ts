@@ -20,6 +20,7 @@ import { ApplicationListComponent } from './application/update-application/appli
 import { NewApplicationPreviewComponent } from './application/new-application/new-application-preview/new-application-preview.component';
 import { BodyComponent } from './application/update-application/body/body.component';
 import { ApplicationComponent } from './application/your-applications/application/application.component';
+import {} from '@types/googlemaps';
 
 @NgModule({
   imports: [

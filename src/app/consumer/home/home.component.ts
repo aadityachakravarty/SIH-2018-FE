@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
 
      public clickedMarker(markers: Marker, index: number ) {
         this.getDirection(markers.lat, markers.lng);
+        this.calculateDistance(markers.lat, markers.lng);
      }
 
      public getDirection(latitude: number, longitude: number) {
@@ -52,7 +53,14 @@ export class HomeComponent implements OnInit {
       origin: { lat: this.lat, lng: this.lng },
       destination: { lat: latitude, lng: longitude }
     };
-  }
+    }
+
+    public calculateDistance( latitude: number, longitude: number) {
+      const nyc = new google.maps.LatLng(this.lat, this.lng);
+      const london = new google.maps.LatLng(latitude, longitude);
+      const distance = google.maps.geometry.spherical.computeDistanceBetween(nyc, london);
+      console.log(distance);
+    }
 
   onNewApplication() {
       this.router.navigate(['consumer/new-application']);

@@ -9,7 +9,7 @@
     z-index: 0;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -740px;
+    margin-top: -620px;
     /*margin-bottom: 50vh;*/
     box-shadow: 0px 0px 60px 0.1px rgba(45, 103, 130, 0.5);
     position: relative;
@@ -17,7 +17,10 @@
 
 .hero .back{
     width: 100%;
+  position: relative;
     overflow: hidden;
+  height: 700px;
+
 }
 
 .hero .back span#grad{
@@ -25,8 +28,7 @@
     top: 0px;
     left: 0px;
     width: 100%;
-    height: 800px;
-    background: linear-gradient(130deg, #1b4790 30%, #4ce499 100%);
+    height: 700px;
     z-index: -5;
 }
 
@@ -35,15 +37,12 @@
 }
 
 .hero .back span#white{
-    width: 0;
-    position: absolute;
-    top: 32vh;
-    left: -5vh;
-    height: 0;
-    z-index: -4;
-
-    border-left: 200vh solid transparent;
-    border-bottom: 500px solid white;
+  width: 100%;
+  height: 800px;
+  margin-top: 60vh;
+  background: #ffffff;
+  position: absolute;
+  transform: skewY(-15deg);
 }
 
 .userSection{
