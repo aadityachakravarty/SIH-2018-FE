@@ -66,10 +66,31 @@
             <label for="connectionAddress">Connection Address</label>
           </div>
 
+          <br>
           <div class="md-form">
-            <i class="fa fa-building prefix grey-text"></i>
-            <input type="text" id="connectionAddressLandRegistrationNumber" formControlName="connectionAddressLandRegistrationNumber" class="form-control" mdbActive>
-            <label for="connectionAddressLandRegistrationNumber">Connection Address Land Registration Number</label>
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="row">
+                <div class="col-sm-2">
+                  <i class="fa fa-building grey-text" style="font-size: 32px;"></i>
+                </div>
+                <div class="col-sm-10">
+                  <p>Connection Address Land Document</p>
+                  {{addressDocument}}
+                </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" [(ngModel)]="addressDocument" formControlName="connectionAddressLandDocument" id="connectionAddressLandDocument">
+                  <label class="custom-file-label" for="connectionAddressLandDocument">Choose file</label>
+                </div>
+              </div>
+            </div>
+
+
+
           </div>
 
           <div class="md-form">

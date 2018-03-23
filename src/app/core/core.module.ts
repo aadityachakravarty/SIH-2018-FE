@@ -8,13 +8,15 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md/index';
 import { MainHomeComponent } from './main-home/main-home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { CoreRoutingModule } from './core-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     MDBBootstrapModule,
     AppRoutingModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [
     HeaderComponent,

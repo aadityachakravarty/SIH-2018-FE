@@ -1,3 +1,7 @@
 p {
   color: #757575;
 }
+.custom-file-upload {
+  display: inline-block;
+  cursor: pointer;
+}

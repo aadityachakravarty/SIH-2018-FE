@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { ConsumerModule } from './consumer/consumer.module';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeModule } from './employee/employee.module';
+import { LoginService } from './core/auth/login.service';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { EmployeeModule } from './employee/employee.module';
     EmployeeModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

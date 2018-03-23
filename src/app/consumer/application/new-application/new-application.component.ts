@@ -14,6 +14,7 @@ export class NewApplicationComponent implements OnInit {
   voltageSupplyDropdown = 'Select Option';
   permanentAddressDropdown = 'Select Address';
   permanentAddressValue = 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana';
+  addressDocument;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
@@ -26,7 +27,7 @@ export class NewApplicationComponent implements OnInit {
       'email': new FormControl(null),
       'permanentAddress': new FormControl(null),
       'connectionAddress': new FormControl(null),
-      'connectionAddressLandRegistrationNumber': new FormControl(null),
+      'connectionAddressLandDocument': new FormControl(null),
       'loadDemand': new FormControl(null),
       'connectionCategory': new FormControl(null),
       'connectionType': new FormControl(null),
