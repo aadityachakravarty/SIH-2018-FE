@@ -6,7 +6,6 @@ import { TrackingComponent } from './tracking/tracking.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NewApplicationComponent } from './application/new-application/new-application.component';
 import { UpdateApplicationComponent } from './application/update-application/update-application.component';
-import { ClosingApplicationComponent } from './application/closing-application/closing-application.component';
 import { YourApplicationsComponent } from './application/your-applications/your-applications.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConsumerRoutingModule } from './consumer-routing.module';
@@ -40,7 +39,6 @@ import {} from '@types/googlemaps';
     NotificationComponent,
     NewApplicationComponent,
     UpdateApplicationComponent,
-    ClosingApplicationComponent,
     YourApplicationsComponent,
     ChangeNameComponent,
     ChangeLoadComponent,

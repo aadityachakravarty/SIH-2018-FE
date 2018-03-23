@@ -17,7 +17,7 @@ export class NewApplicationPreviewComponent implements OnInit {
     'email': 'anshulsharma0888@gmail.com',
     'permanentAddress': 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana',
     'connectionAddress': 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana',
-    'connectionAddressLandRegistrationNumber': 'ASD33434A34RLW',
+    'connectionAddressLandDocument': 'ASD33434A34RLW',
     'loadDemand': 4,
     'connectionCategory': 'Domestic Supply (DS)',
     'connectionType': 'Permanent',
