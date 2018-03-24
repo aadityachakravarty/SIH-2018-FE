@@ -6,6 +6,8 @@ import { NewApplicationsComponent } from './applications/new-applications/new-ap
 import { ProgressApplicationsComponent } from './applications/progress-applications/progress-applications.component';
 import { PriorityApplicationsComponent } from './applications/priority-applications/priority-applications.component';
 import { CompletedApplicationsComponent } from './applications/completed-applications/completed-applications.component';
+import { BaseMapComponent } from './base-map/base-map.component';
+import { RulesRegulationsComponent } from './rules-regulations/rules-regulations.component';
 
 const employeeRoutes: Routes = [
   { path: 'employee/home', component: EmployeeHomeComponent },
@@ -16,7 +18,9 @@ const employeeRoutes: Routes = [
   { path: 'employee/priority-applications/list', component: EmployeeApplicationsListComponent },
   { path: 'employee/priority-applications/:id', component: PriorityApplicationsComponent },
   { path: 'employee/completed-applications/list', component: EmployeeApplicationsListComponent },
-  { path: 'employee/completed-applications/:id', component: CompletedApplicationsComponent }
+  { path: 'employee/completed-applications/:id', component: CompletedApplicationsComponent },
+  { path: 'employee/base-map', component: BaseMapComponent },
+  { path: 'employee/rules-regulations', component: RulesRegulationsComponent }
 ];
 
 @NgModule({

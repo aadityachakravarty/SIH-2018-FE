@@ -17,7 +17,6 @@ export class ApplicationComponent implements OnInit {
     'meterNumber': 'MO245444565567',
     'permanentAddress': 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana',
     'connectionAddress': 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana',
-    'connectionAddressLandRegistrationNumber': 'ASD33434A34RLW',
     'loadDemand': 4,
     'connectionCategory': 'Domestic Supply (DS)',
     'connectionType': 'Permanent',

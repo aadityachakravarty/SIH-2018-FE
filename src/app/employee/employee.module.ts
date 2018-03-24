@@ -10,12 +10,19 @@ import { EmployeeHomeComponent } from './employee-home/employee-home.component';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { EmployeeApplicationsListComponent } from './applications/employee-applications-list/employee-applications-list.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md/index';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
+import { } from '@types/googlemaps';
 
 @NgModule({
   imports: [
     CommonModule,
     EmployeeRoutingModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
+    }),
+    AgmDirectionModule
   ],
   declarations: [
     NewApplicationsComponent,

@@ -8,6 +8,9 @@ import { ConsumerModule } from './consumer/consumer.module';
 import { AppRoutingModule } from './app-routing.module';
 import { EmployeeModule } from './employee/employee.module';
 import { LoginService } from './core/auth/login.service';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,10 +20,15 @@ import { LoginService } from './core/auth/login.service';
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
+    HttpClientModule,
     CoreModule,
     ConsumerModule,
     EmployeeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
+    }),
+    AgmDirectionModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
