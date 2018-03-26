@@ -7,7 +7,7 @@ import { LoginService } from '../auth/login.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userType = 'employee';
+  userType = 'consumer';
   loggedIn: boolean;
   constructor(private loginService: LoginService) {}
 

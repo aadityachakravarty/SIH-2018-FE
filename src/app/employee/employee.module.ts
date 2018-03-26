@@ -20,7 +20,7 @@ import { } from '@types/googlemaps';
     EmployeeRoutingModule,
     MDBBootstrapModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
+      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM', libraries: ['geometry']
     }),
     AgmDirectionModule
   ],

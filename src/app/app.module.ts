@@ -11,6 +11,7 @@ import { LoginService } from './core/auth/login.service';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -24,9 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     ConsumerModule,
     EmployeeModule,
+    AdminModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM'
+      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM', libraries: ['geometry']
     }),
     AgmDirectionModule
   ],

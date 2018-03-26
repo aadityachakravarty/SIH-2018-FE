@@ -1,11 +1,13 @@
 <div class="container" style="margin-top: 15px;">
+  <div class="jumbotron">
+    <div class="row container-fluid" style="width: 100%;">
+      <h4 class="brown-text">Application Preview</h4>
+    </div>
+
+    <hr>
+
   <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-      <div class="jumbotron">
-        <h4 class="brown-text">Application Preview</h4>
-
-        <br>
-
+    <div class="col-sm-6">
         <!--Row-->
         <div class="row">
           <div class="col-sm-4 offset-sm-1">
@@ -81,94 +83,93 @@
           </div>
         </div>
         <!--/Row-->
+      </div>
 
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-4 offset-sm-1">
-            <strong>Connection Address:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{newApplicationPreview.connectionAddress}}
-          </div>
+    <div class="col-sm-6">
+      <!--Row-->
+      <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+          <strong>Connection Address:</strong>
         </div>
-        <!--/Row-->
-
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-4 offset-sm-1">
-            <strong>Connection Address Land Document:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{newApplicationPreview.connectionAddressLandDocument}}
-          </div>
+        <div class="col-sm-6">
+          {{newApplicationPreview.connectionAddress}}
         </div>
-        <!--/Row-->
+      </div>
+      <!--/Row-->
 
-        <br>
+      <br>
 
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-4 offset-sm-1">
-            <strong>Load Demand:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{newApplicationPreview.loadDemand}} KW
-          </div>
+      <!--Row-->
+      <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+          <strong>Connection Address Land Document:</strong>
         </div>
-        <!--/Row-->
-
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-4 offset-sm-1">
-            <strong>Connection Category:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{newApplicationPreview.connectionCategory}}
-          </div>
+        <div class="col-sm-6">
+          {{newApplicationPreview.connectionAddressLandDocument}}
         </div>
-        <!--/Row-->
+      </div>
+      <!--/Row-->
 
-        <br>
+      <br>
 
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-4 offset-sm-1">
-            <strong>Connection Type:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{newApplicationPreview.connectionType}}
-          </div>
+      <!--Row-->
+      <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+          <strong>Load Demand:</strong>
         </div>
-        <!--/Row-->
-
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-4 offset-sm-1">
-            <strong>Voltage Supply:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{newApplicationPreview.voltageSupply}}
-          </div>
+        <div class="col-sm-6">
+          {{newApplicationPreview.loadDemand}} KW
         </div>
-        <!--/Row-->
-        <br>
-        <hr>
-        <div class="row">
-          <div class="col-sm-3 offset-sm-2 my-3">
-            <button class="btn btn-md btn-block btn-success btn-lg waves-light" role="button"  data-toggle="modal" (click)="newApplicationSuccessModal.show()" mdbRippleRadius>Submit</button>
-          </div>
-          <div class="col-sm-3 offset-sm-2 my-3">
-            <button class="btn btn-md btn-block btn-warning btn-lg waves-light" role="button" data-toggle="modal" (click)="newApplicationEditModal.show()" mdbRippleRadius>Edit</button>
-          </div>
+      </div>
+      <!--/Row-->
+
+      <br>
+
+      <!--Row-->
+      <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+          <strong>Connection Category:</strong>
         </div>
+        <div class="col-sm-6">
+          {{newApplicationPreview.connectionCategory}}
+        </div>
+      </div>
+      <!--/Row-->
+
+      <br>
+
+      <!--Row-->
+      <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+          <strong>Connection Type:</strong>
+        </div>
+        <div class="col-sm-6">
+          {{newApplicationPreview.connectionType}}
+        </div>
+      </div>
+      <!--/Row-->
+
+      <br>
+
+      <!--Row-->
+      <div class="row">
+        <div class="col-sm-4 offset-sm-1">
+          <strong>Voltage Supply:</strong>
+        </div>
+        <div class="col-sm-6">
+          {{newApplicationPreview.voltageSupply}}
+        </div>
+      </div>
+      <!--/Row-->
+    </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3 offset-sm-2 my-3">
+        <button class="btn btn-md btn-block btn-success btn-lg waves-light" role="button"  data-toggle="modal" (click)="newApplicationSuccessModal.show()" mdbRippleRadius>Submit</button>
+      </div>
+      <div class="col-sm-3 offset-sm-2 my-3">
+        <button class="btn btn-md btn-block btn-warning btn-lg waves-light" role="button" data-toggle="modal" (click)="newApplicationEditModal.show()" mdbRippleRadius>Edit</button>
       </div>
     </div>
   </div>

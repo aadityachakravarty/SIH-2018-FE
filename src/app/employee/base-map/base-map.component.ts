@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 interface Marker {
   name?: string;
@@ -12,6 +12,7 @@ interface Marker {
   styleUrls: ['./base-map.component.css']
 })
 export class BaseMapComponent implements OnInit {
+  @Input() label= 'you';
 
   constructor() { }
   lat: number;
@@ -20,8 +21,38 @@ export class BaseMapComponent implements OnInit {
 
   markers: Marker[] = [
     {
-      name: 'one',
+      name: 'delhi',
+      lat: 28.7041,
+      lng: 77.1025
+    },
+    {
+      name: 'two',
       lat: 29.489934,
+      lng: 79.327598
+    },
+    {
+      name: 'three',
+      lat: 29.489934,
+      lng: 79.327566
+    },
+    {
+      name: 'four',
+      lat: 29.489922,
+      lng: 79.327594
+    },
+    {
+      name: 'five',
+      lat: 29.489934,
+      lng: 79.327334
+    },
+    {
+      name: 'six',
+      lat: 29.489977,
+      lng: 79.327594
+    },
+    {
+      name: 'seven',
+      lat: 29.489331,
       lng: 79.327594
     }
   ]
