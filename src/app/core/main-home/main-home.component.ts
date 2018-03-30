@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { } from '@types/googlemaps';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-home',
@@ -16,6 +13,7 @@ export class MainHomeComponent implements OnInit {
   mapDestination: any;
   mapUrl: string;
   safeMapUrl: any;
+  onMapShow = false;
 
 
   constructor(private sanatizer: DomSanitizer) { }
@@ -35,6 +33,7 @@ export class MainHomeComponent implements OnInit {
       '&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
     this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
   //To set the map origin and destination for cost estimation.
+    this.onMapShow = true;
   }
 
 }
