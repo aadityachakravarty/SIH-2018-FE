@@ -5,7 +5,6 @@ import { CustomerCareComponent } from './customer-care/customer-care.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NewApplicationComponent } from './application/new-application/new-application.component';
-import { UpdateApplicationComponent } from './application/update-application/update-application.component';
 import { YourApplicationsComponent } from './application/your-applications/your-applications.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { ConsumerRoutingModule } from './consumer-routing.module';
@@ -17,7 +16,6 @@ import { CloseApplicationComponent } from './application/update-application/clos
 import { ReactiveFormsModule } from '@angular/forms';
 import { ApplicationListComponent } from './application/update-application/application-list/application-list.component';
 import { NewApplicationPreviewComponent } from './application/new-application/new-application-preview/new-application-preview.component';
-import { BodyComponent } from './application/update-application/body/body.component';
 import { ApplicationComponent } from './application/your-applications/application/application.component';
 import {} from '@types/googlemaps';
 import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.component';
@@ -39,14 +37,12 @@ import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.co
     TrackingComponent,
     NotificationComponent,
     NewApplicationComponent,
-    UpdateApplicationComponent,
     YourApplicationsComponent,
     ChangeNameComponent,
     ChangeLoadComponent,
     CloseApplicationComponent,
     ApplicationListComponent,
     NewApplicationPreviewComponent,
-    BodyComponent,
     ApplicationComponent,
     ConsumerProfileComponent
   ],

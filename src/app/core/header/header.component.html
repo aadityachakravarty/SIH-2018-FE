@@ -5,10 +5,10 @@
   <!-- Navbar brand -->
     <logo>
       <ng-template [ngIf]="userType !== 'employee'">
-        <a class="navbar-brand" [routerLink]="'/'">Energy</a>
+        <a class="navbar-brand" [routerLink]="'/'">Energion</a>
       </ng-template>
       <ng-template [ngIf]="userType === 'employee'">
-        <a class="navbar-brand" [routerLink]="'/employee/home'">Energy</a>
+        <a class="navbar-brand" [routerLink]="'/employee/home'">Energion</a>
       </ng-template>
     </logo>
 
@@ -18,16 +18,32 @@
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <!--Consumer Header Links-->
-      <ng-template [ngIf]="userType === 'consumer'">
+      <ng-template [ngIf]="userType === 'consumer' && loggedIn">
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link waves-light" [routerLink]="'/consumer/home'" mdbRippleRadius>Home</a>
         </li>
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link waves-light" [routerLink]="'/consumer/new-application'" mdbRippleRadius>New Application</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link waves-light" [routerLink]="'/consumer/update-application'" mdbRippleRadius>Update Application</a>
+
+        <!--Update Applications Dropdown -->
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius>
+            Update Application <span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary " role="menu">
+            <a class="dropdown-item waves-light" mdbRippleRadius [routerLink]="'/change-name/list'">
+              Change of Name
+            </a>
+            <a class="dropdown-item waves-light" mdbRippleRadius [routerLink]="'/change-load/list'">
+              Change in Load
+            </a>
+            <a class="dropdown-item waves-light" mdbRippleRadius [routerLink]="'/close-connection/list'">
+              Close Connection
+            </a>
+          </div>
         </li>
+        <!--/Update Applications Dropdown-->
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link waves-light" [routerLink]="'/consumer/your-applications'" mdbRippleRadius>Your Application</a>
         </li>
@@ -111,13 +127,17 @@
       </ng-template>
       <!--/Other Links for Employee-->
 
-      <!--Log In-->
+      <!--Log In & Sign Up-->
       <ng-template [ngIf]="!loggedIn">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light" [routerLink]="'/signup'" mdbRippleRadius>Sign Up</a>
+        </li>
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link waves-light" [routerLink]="'/login'" mdbRippleRadius>Log In</a>
         </li>
       </ng-template>
-      <!--/Log In-->
+      <!--/Log In & Sign Up-->
 
     </ul>
     <!-- Links -->

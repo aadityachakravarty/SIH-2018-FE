@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { } from '@types/googlemaps';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
+
 
 @NgModule({
   imports: [
@@ -23,7 +25,8 @@ import { AgmDirectionModule } from 'agm-direction';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM', libraries: ['geometry']
     }),
-    AgmDirectionModule
+    AgmDirectionModule,
+    AsyncLocalStorageModule
   ],
   declarations: [
     HeaderComponent,

@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-7">
       <blockquote class="bq-success">
-        <h2 class="h2-responsive brown-text">know the estimate cost of your new connection!</h2>
+        <h2 class="h2-responsive brown-text">Know the Cost of your New Connection</h2>
         <hr>
         <p style="font-size: 22px;">just let us where you are & how much you want,
           <br><em>we will serve you with the best options.</em></p>
@@ -19,15 +19,15 @@
           <form [formGroup]="costEstimationForm" (ngSubmit)="onEstimateSubmit();">
 
             <div class="md-form">
-              <input type="text" id="estimateConnectionAddress" formControlName="estimateConnectionAddress"
+              <input type="text" id="address" formControlName="address"
                      class="form-control" mdbActive>
-              <label for="estimateConnectionAddress">Enter Your Address</label>
+              <label for="address">Enter Your Address</label>
             </div>
 
             <div class="md-form">
-              <input type="text" id="estimateLoadDemand" formControlName="estimateLoadDemand" class="form-control"
+              <input type="text" id="capacity" formControlName="capacity" class="form-control"
                      mdbActive>
-              <label for="estimateLoadDemand">Load Demand</label>
+              <label for="capacity">Load Demand</label>
             </div>
 
             <div class="text-center">
@@ -40,14 +40,55 @@
     </div>
   </div>
   <!--/Cost estimation-->
-
+  <br>
   <!--CostEstimationMap-->
   <div class="row" *ngIf="onMapShow" style="width: 100%">
-    <div class="jumbotron">
-      <iframe width="100%" height="450" frameborder="0" style="border:0" [src]="safeMapUrl" allowfullscreen></iframe>
+    <div class="jumbotron" style="width: 100%;">
+      <iframe width="100%" height="450" [src]="safeMapUrl" allowfullscreen></iframe>
+      <hr>
+      <div class="row">
+        <h4><strong>Cost: </strong>INR {{estimatedCost}}</h4>
+      </div>
+      <div class="row">
+        <p><strong>Service Provider: </strong>{{serviceProvider}}</p>
+      </div>
     </div>
   </div>
   <!--/CostEstimationMap-->
+
+  <!--Key Features-->
+  <div class="row hoverable" style="padding: 12px 0px 12px 12px;">
+    <div class="row container-fluid" style="margin-top: 20px;">
+      <h3 class="brown-text"><em>Key Features:</em></h3>
+    </div>
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-sm-4">
+
+        <blockquote class="blockquote bq-success" style="height: 100%;">
+          <p class="bq-title"><i class="fa fa-handshake-o" aria-hidden="true"></i> New Connection</p>
+        </blockquote>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <blockquote class="blockquote bq-primary" style="height: 100%;">
+          <p class="bq-title"><i class="fa fa-file-text-o" aria-hidden="true"></i> Complaint & Grievance</p>
+        </blockquote>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <blockquote class="blockquote bq-warning" style="height: 100%;">
+          <p class="bq-title"><i class="fa fa-truck" aria-hidden="true"></i> Application Tracking</p>
+        </blockquote>
+
+      </div>
+
+    </div>
+  </div>
+  <!--/Key Features-->
 
   <!--Documents Required-->
   <div class="jumbotron view hm-zoom" style="margin-top: 40px;">
@@ -66,8 +107,9 @@
         </ul>
       </div>
 
-      <div class="col-sm-3 offset-sm-2">
-        <img src="https://cdn0.iconfinder.com/data/icons/flaturici-set-3/512/id-512.png" style="height: 30vh;" class="img-fluid" alt="documents">
+      <div class="col-sm-4 offset-sm-1">
+        <img src="https://cdn0.iconfinder.com/data/icons/flaturici-set-3/512/id-512.png" style="height: 30vh;"
+             class="img-fluid" alt="documents">
       </div>
 
     </div>

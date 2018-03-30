@@ -6,7 +6,9 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
 
   userLoggedIn = new Subject();
+
   constructor(private httpClient: HttpClient) { }
+
   onGet() {
     this.httpClient.get('https://api.nvixion.tech/').subscribe(
       (data) => {
@@ -14,4 +16,19 @@ export class LoginService {
       }
     );
   }
+
+  onLogin(loginData) {
+    return this.httpClient.post('https://api-egn.nvixion.tech/auth/login', loginData);
+  }
+
+  onLogOut() {
+    return this.httpClient.get('https://api-egn.nvixion.tech');
+  }
+
+  onSignUp(signUpData) {
+    return this.httpClient.post('https://api-egn.nvixion.tech/auth/register', signUpData);
+  }
+
+
+
 }

@@ -8,13 +8,13 @@
 
             <div class="md-form row">
               <!--<i class="fa fa-envelope prefix grey-text"></i>-->
-              <input type="text" id="defaultForm-email" formControlName="logInEmail" class="form-control" mdbActive>
+              <input type="text" id="defaultForm-email" formControlName="username" class="form-control" mdbActive>
               <label for="defaultForm-email">Your email</label>
             </div>
 
             <div class="md-form row">
               <!--<i class="fa fa-lock prefix grey-text"></i>-->
-              <input type="password" id="defaultForm-pass" formControlName="logInPassword" class="form-control" mdbActive>
+              <input type="password" id="defaultForm-pass" formControlName="password" class="form-control" mdbActive>
               <label for="defaultForm-pass">Your password</label>
             </div>
 
@@ -41,3 +41,26 @@
     </div>
   </div>
 </div>
+
+
+<!--Login Failure Modal-->
+
+<button type="button" class="btn btn-primary waves-light" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbRippleRadius>
+  Bottom
+</button>
+
+<div mdbModal #frame="mdb-modal" class="modal fade bottom" id="frameModalBottom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-frame modal-top" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row px-4">
+          <p class="pt-1 pr-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nisi quo provident fugiat reprehenderit nostrum quos..</p>
+          <button type="button" class="btn btn-secondary waves-light" data-dismiss="modal" (click)="frame.hide()" mdbRippleRadius>Close</button>
+          <button type="button" class="btn btn-primary waves-light" mdbRippleRadius>Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--/Login Failure Modal-->

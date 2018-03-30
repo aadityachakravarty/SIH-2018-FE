@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { EstimateService } from './estimate.service';
 
 @Component({
   selector: 'app-main-home',
@@ -14,26 +15,38 @@ export class MainHomeComponent implements OnInit {
   mapUrl: string;
   safeMapUrl: any;
   onMapShow = false;
+  estimatedCost: number;
+  serviceProvider: string;
 
 
-  constructor(private sanatizer: DomSanitizer) { }
+  constructor(private sanatizer: DomSanitizer, private estimateService: EstimateService) {
+  }
 
   ngOnInit() {
     this.costEstimationForm = new FormGroup({
-      'estimateConnectionAddress': new FormControl(null),
-      'estimateLoadDemand': new FormControl(null)
+      'address': new FormControl(null),
+      'capacity': new FormControl(null)
     });
   }
 
   onEstimateSubmit() {
-    console.log(this.costEstimationForm.value);
-    //To set the map origin and destination for cost estimation.
-    this.mapUrl = '//www.google.com/maps/embed/v1/directions?origin=' + this.mapOrigin.lat + ',' + this.mapOrigin.lng +
-      '&destination=' + this.mapDestination.lat + ',' + this.mapDestination.lng +
-      '&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
-    this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
-  //To set the map origin and destination for cost estimation.
-    this.onMapShow = true;
+    const address = this.costEstimationForm.value;
+      console.log(address);
+    this.estimateService.onEstimate(address).subscribe(
+      response => {
+        console.log(response);
+        this.mapOrigin = response.coordinates.customer;
+        this.mapDestination = response.coordinates.transformer;
+        this.serviceProvider = response.provider;
+        this.estimatedCost = response.estimatedCost;
+        this.mapUrl = '//www.google.com/maps/embed/v1/directions?origin=' + this.mapOrigin.lat + ',' + this.mapOrigin.lng +
+          '&destination=' + this.mapDestination.lat + ',' + this.mapDestination.lng +
+          '&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
+        this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
+        this.onMapShow = true;
+      }
+    );
+
   }
 
 }

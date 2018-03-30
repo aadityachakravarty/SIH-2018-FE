@@ -13,6 +13,9 @@ import { AgmDirectionModule } from 'agm-direction';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { } from '@types/googlemaps';
+import { EstimateService } from './core/main-home/estimate.service';
+import { ConsumerService } from './consumer/consumer.service';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 
 
 @NgModule({
@@ -31,9 +34,14 @@ import { } from '@types/googlemaps';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM', libraries: ['geometry']
     }),
-    AgmDirectionModule
+    AgmDirectionModule,
+    AsyncLocalStorageModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    EstimateService,
+    ConsumerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
