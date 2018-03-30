@@ -20,6 +20,7 @@ import { NewApplicationPreviewComponent } from './application/new-application/ne
 import { BodyComponent } from './application/update-application/body/body.component';
 import { ApplicationComponent } from './application/your-applications/application/application.component';
 import {} from '@types/googlemaps';
+import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,8 @@ import {} from '@types/googlemaps';
     ApplicationListComponent,
     NewApplicationPreviewComponent,
     BodyComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    ConsumerProfileComponent
   ],
   exports: [
     HomeComponent,

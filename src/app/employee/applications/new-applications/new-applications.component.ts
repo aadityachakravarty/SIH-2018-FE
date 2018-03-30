@@ -16,7 +16,6 @@ export class NewApplicationsComponent implements OnInit {
     'applicationNumber': 'URJDJCXKW99449WKD',
     'applicantName': 'Anshul Sharma',
     'fatherName_husbandName': 'Satish Kumar',
-    'aadharNumber': 600487597412,
     'mobileNumber': '9996999200',
     'email': 'anshulsharma0888@gmail.com',
     'meterNumber': 'APDUR849R9583',

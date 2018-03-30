@@ -22,9 +22,9 @@ export class LogInComponent implements OnInit {
 
   onLogin() {
     this.isLoggedIn = true;
-    this.loginService.userLoggedIn.next(this.isLoggedIn);
     this.router.navigate(['consumer/home']);
     console.log(this.loginForm);
     this.loginService.onGet();
+    this.loginService.userLoggedIn.next(this.isLoggedIn);
   }
 }

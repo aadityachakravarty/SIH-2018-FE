@@ -8,6 +8,8 @@ import { PriorityApplicationsComponent } from './applications/priority-applicati
 import { CompletedApplicationsComponent } from './applications/completed-applications/completed-applications.component';
 import { BaseMapComponent } from './base-map/base-map.component';
 import { RulesRegulationsComponent } from './rules-regulations/rules-regulations.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
 
 const employeeRoutes: Routes = [
   { path: 'employee/home', component: EmployeeHomeComponent },
@@ -20,7 +22,9 @@ const employeeRoutes: Routes = [
   { path: 'employee/completed-applications/list', component: EmployeeApplicationsListComponent },
   { path: 'employee/completed-applications/:id', component: CompletedApplicationsComponent },
   { path: 'employee/base-map', component: BaseMapComponent },
-  { path: 'employee/rules-regulations', component: RulesRegulationsComponent }
+  { path: 'employee/rules-regulations', component: RulesRegulationsComponent },
+  { path: 'employee/profile', component: EmployeeProfileComponent },
+  { path: 'employee/notifications', component: EmployeeNotificationComponent }
 ];
 
 @NgModule({

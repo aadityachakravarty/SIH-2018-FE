@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import {} from '@types/googlemaps';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+
+interface Marker {
+  name?: string;
+  lat: number;
+  lng: number;
+}
 
 @Component({
   selector: 'app-new-application',
@@ -14,9 +24,43 @@ export class NewApplicationComponent implements OnInit {
   voltageSupplyDropdown = 'Select Option';
   permanentAddressDropdown = 'Select Address';
   permanentAddressValue = 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana';
-  addressDocument;
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  lat: number;
+  lng: number;
+  dir: any;
+
+  markers: Marker[] = [
+    {
+      name: 'one',
+      lat: 29.489934,
+      lng: 79.327594
+    }
+  ]
+  mapOrigin = '151 Idgah Colony Model Town Panipat';
+  mapDestination = 'New Delhi'
+  mapAdd;
+  mapUrl;
+  safeMapUrl;
+
+
+  // mapUrl = '//www.google.com/maps/embed/v1/directions?origin=' + this.mapOrigin +
+  //   '&destination=' + this.mapDestination + '&zoom=13&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
+  onMapDefault() {
+    this.mapUrl = '//www.google.com/maps/embed/v1/place?q=' + 'current location' +
+      '&zoom=17&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
+    this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
+  }
+  onMap() {
+    if(this.mapAdd === '') {
+      this.onMapDefault();
+    }else {
+      this.mapUrl = '//www.google.com/maps/embed/v1/place?q=' + this.mapAdd +
+        '&zoom=17&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
+      this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
+    }
+  }
+
+  constructor(private router: Router, private route: ActivatedRoute, public sanatizer: DomSanitizer, private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.newApplicationForm = new FormGroup({
@@ -33,6 +77,16 @@ export class NewApplicationComponent implements OnInit {
       'connectionType': new FormControl(null),
       'voltageSupply': new FormControl(null)
     });
+
+    this.getUserLocation();
+    console.log('running');
+    this.httpClient.get('https://maps.googleapis.com/maps/api/geocode/json?address=Hyderabad&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E').subscribe(
+      (response: Response) => {
+        console.log(response);
+      }
+    );
+    this.onMapDefault();
+
   }
 
   onPermanentAddress(data: string) {
@@ -66,6 +120,35 @@ export class NewApplicationComponent implements OnInit {
   onNewApplicationForm() {
     console.log(this.newApplicationForm);
     this.router.navigate(['preview'], {relativeTo: this.route});
+  }
+
+  private getUserLocation() {
+    /// locate the user
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      });
+    }
+  }
+
+  public clickedMarker(markers: Marker, index: number ) {
+    this.getDirection(markers.lat, markers.lng);
+    this.calculateDistance(markers.lat, markers.lng);
+  }
+
+  public getDirection(latitude: number, longitude: number) {
+    this.dir = {
+      origin: { lat: this.lat, lng: this.lng },
+      destination: { lat: latitude, lng: longitude }
+    };
+  }
+
+  public calculateDistance( latitude: number, longitude: number) {
+    const nyc = new google.maps.LatLng(this.lat, this.lng);
+    const london = new google.maps.LatLng(latitude, longitude);
+    const distance = google.maps.geometry.spherical.computeDistanceBetween(nyc, london);
+    console.log(distance);
   }
 
 }

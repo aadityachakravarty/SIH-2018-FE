@@ -9,6 +9,9 @@ import { MainHomeComponent } from './main-home/main-home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { CoreRoutingModule } from './core-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { } from '@types/googlemaps';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   imports: [
@@ -16,7 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MDBBootstrapModule,
     AppRoutingModule,
     CoreRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD1lxsfuO9r6EIJ7-CCsp7ebk4Fhbsc9iM', libraries: ['geometry']
+    }),
+    AgmDirectionModule
   ],
   declarations: [
     HeaderComponent,

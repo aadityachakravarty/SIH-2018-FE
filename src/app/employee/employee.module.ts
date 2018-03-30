@@ -13,6 +13,8 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md/index';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { } from '@types/googlemaps';
+import { EmployeeNotificationComponent } from './employee-notification/employee-notification.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,9 @@ import { } from '@types/googlemaps';
     BaseMapComponent,
     RulesRegulationsComponent,
     EmployeeHomeComponent,
-    EmployeeApplicationsListComponent
+    EmployeeApplicationsListComponent,
+    EmployeeNotificationComponent,
+    EmployeeProfileComponent
   ]
 })
 export class EmployeeModule { }

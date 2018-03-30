@@ -13,6 +13,7 @@ import { BodyComponent } from './application/update-application/body/body.compon
 import { ApplicationComponent } from './application/your-applications/application/application.component';
 import { NotificationComponent } from './notification/notification.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { ConsumerProfileComponent } from './consumer-profile/consumer-profile.component';
 
 const consumerRoutes: Routes = [
   { path: 'consumer/home', component: HomeComponent },
@@ -31,7 +32,8 @@ const consumerRoutes: Routes = [
   { path: 'consumer/your-applications', component: YourApplicationsComponent},
   { path: 'consumer/your-applications/:id', component: ApplicationComponent},
   { path: 'consumer-notifications', component: NotificationComponent},
-  { path: 'consumer-tracking', component: TrackingComponent }
+  { path: 'consumer-tracking', component: TrackingComponent },
+  { path: 'consumer-profile', component: ConsumerProfileComponent }
 ]
 
 @NgModule({
