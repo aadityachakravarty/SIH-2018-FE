@@ -7,6 +7,7 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
 export class LoginService {
 
   userLoggedIn = new Subject();
+  userType = new Subject();
   localData;
 
   constructor(private httpClient: HttpClient, private localStorage: AsyncLocalStorage) { }
@@ -36,7 +37,6 @@ export class LoginService {
   onSignUp(signUpData) {
     return this.httpClient.post('https://api-egn.nvixion.tech/auth/register', signUpData);
   }
-
 
 
 }

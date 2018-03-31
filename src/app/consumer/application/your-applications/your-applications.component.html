@@ -22,7 +22,7 @@
           <!--Text-->
           <p class="card-text text-justify"><strong>Address:</strong> {{application.consumerDetails.connectionAddress}}</p>
           <a class="btn btn-md light-green darken-4 waves-light pull-left" (click)="onViewApplication(i);" mdbRippleRadius>View</a>
-          <a type="button" [routerLink]="'/consumer-tracking'" class="btn btn-outline-success btn-md pull-right" mdbRippleRadius>track</a>
+          <a type="button" (click)="onTracking(i);" [routerLink]="'/consumer-tracking'" class="btn btn-outline-success btn-md pull-right" mdbRippleRadius>track</a>
         </div>
         <!--/.Card content-->
 

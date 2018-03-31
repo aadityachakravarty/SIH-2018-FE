@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../auth/login.service';
 import { Router } from '@angular/router';
 import { AsyncLocalStorage } from 'angular-async-local-storage';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -9,40 +10,74 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userType = 'consumer';
-  loggedIn: boolean;
-  constructor(private loginService: LoginService, private router: Router, private localStorage: AsyncLocalStorage) {}
+  userType;
+  loggedIn;
+  constructor(private loginService: LoginService, private router: Router, private localStorage: AsyncLocalStorage,
+              private httpClient: HttpClient) {}
 
   ngOnInit() {
+
+    this.userType = 'consumer';
+    this.loggedIn = false;
     this.loginService.userLoggedIn.subscribe(
-      (logIn: boolean) => {
-        this.loggedIn = logIn;
+      (isLog) => {
+        this.loggedIn = isLog;
       }
     );
-
+    this.loginService.userType.subscribe(
+      (usetype) => {
+        this.userType = usetype;
+      }
+    );
     this.localStorage.getItem('user').subscribe(
       (data) => {
-        if (data.token) {
-          if (data.token) {this.loggedIn = true;}
+        if (data) {
+          console.log('checked');
+          if (data.token) {
+            this.loggedIn = true;
+            this.userType = data.type;
+            console.log(this.userType + "asdfaf");
+          }
         } else {
           this.loggedIn = false;
+          this.userType = 'consumer';
         }
       }
-    )
+    );
+    console.log('logged in '+ this.loggedIn);
+    this.loginService.userType.subscribe(
+      () => {
+        this.localStorage.getItem('user').subscribe(
+          (usertypedata) => {
+            this.userType = usertypedata.type;
+            console.log(usertypedata.type);
+          }
+        );
+      }
+    );
   }
 
   onSignOut() {
-    this.loginService.onLogOut().subscribe(
-      response => {
-        this.loggedIn = false;
-        this.loginService.userLoggedIn.next(this.loggedIn);
-        this.router.navigate(['/']);
-        console.log(response);
-      },
-      error => {
-        console.log(error);
-        console.log('its error');
+    this.loggedIn = false;
+    this.localStorage.getItem('user').subscribe(
+      (userLocal) => {
+        this.httpClient.get('https://api-egn.nvixion.tech/auth/logout', {headers: new HttpHeaders({
+            'x-access-token': userLocal.token
+          })}).subscribe(
+          (logout) => {
+            console.log(logout);
+          }
+        );
       }
     );
+
+    this.localStorage.removeItem('user').subscribe(
+      (localDestroy) => {
+        console.log(localDestroy);
+      }
+    );
+
+    console.log('is is loggd' + this.loggedIn);
+    this.router.navigate(['/']);
   }
 }

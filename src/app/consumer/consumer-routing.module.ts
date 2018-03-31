@@ -26,7 +26,7 @@ const consumerRoutes: Routes = [
   {path: 'consumer/your-applications', component: YourApplicationsComponent},
   {path: 'consumer/your-applications/:id', component: ApplicationComponent},
   {path: 'consumer-notifications', component: NotificationComponent},
-  {path: 'consumer-tracking', component: TrackingComponent},
+  {path: 'consumer-tracking/:id', component: TrackingComponent},
   {path: 'consumer-profile', component: ConsumerProfileComponent}
 ];
 

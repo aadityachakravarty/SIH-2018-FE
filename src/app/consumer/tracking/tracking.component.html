@@ -10,10 +10,10 @@
 
   </div>
   <hr>
-  <h4 class="h4-responsive">Application: LXLSD7488R8JKAS</h4>
+  <h4 class="h4-responsive">Application: {{closeConnectionData.ApplicationID}}</h4>
   <br>
-  <p>Name: Anshul Sharma</p>
-  <p>Address: L-482, Ram Lal Chowk, Model Town, Panipat, Haryana</p>
+  <p>Name: {{closeConnectionData.consumerDetails.applicantName}}</p>
+  <p>Address: {{closeConnectionData.consumerDetails.permanentAddress}}</p>
   <hr>
   <br>
 
@@ -28,14 +28,18 @@
   <div>
     <h4 class="h4-responsive"><strong>Status: (75% Completed)</strong></h4>
     <ol>
-      <li class="brown-text">Application submitted by you. <i class="fa fa-check teal-text" aria-hidden="true"></i></li>
-      <li class="brown-text">In process by Verification & Finance Department. <i class="fa fa-check teal-text" aria-hidden="true"></i></li>
-      <li class="brown-text">Passed by Verification & Finance Department. <i class="fa fa-check teal-text" aria-hidden="true"></i></li>
-      <li class="brown-text">Application submitted to Technical Department. <i class="fa fa-check teal-text" aria-hidden="true"></i></li>
-      <li class="brown-text">Clearence Certificate passed. <i class="fa fa-check teal-text" aria-hidden="true"></i></li>
-      <li class="brown-text">Meter alloted. <i class="fa fa-check teal-text" aria-hidden="true"></i></li>
-      <li class="brown-text">Employee in progress. <i class="fa fa-exclamation text-primary" aria-hidden="true"></i></li>
-      <li class="brown-text">Completed. <i class="fa fa-exclamation text-primary" aria-hidden="true"></i></li>
+
+      <li class="brown-text">Application submitted by you. <i *ngIf="closeConnectionData.applicationTracking.userSubmitted" class="fa fa-check teal-text" aria-hidden="true"></i></li>
+
+      <li class="brown-text">In process by Verification & Finance Department. <i *ngIf="closeConnectionData.applicationTracking.veriFinance" class="fa fa-check teal-text" aria-hidden="true"></i></li>
+
+      <li class="brown-text">Passed by Verification & Finance Department. <i *ngIf="closeConnectionData.applicationTracking.veriErr" class="fa fa-check teal-text" aria-hidden="true"></i></li>
+
+      <li class="brown-text">Application submitted to Technical Department. <i *ngIf="closeConnectionData.applicationTracking.techPro" class="fa fa-check teal-text" aria-hidden="true"></i></li>
+
+      <li class="brown-text">Employee in progress. <i *ngIf="closeConnectionData.applicationTracking.emPro" class="fa fa-check teal-text" aria-hidden="true"></i></li>
+
+      <li class="brown-text">Completed. <i *ngIf="closeConnectionData.applicationTracking.completed" class="fa fa-check teal-text" aria-hidden="true"></i></li>
     </ol>
   </div>
   <!--/Tracking Info-->

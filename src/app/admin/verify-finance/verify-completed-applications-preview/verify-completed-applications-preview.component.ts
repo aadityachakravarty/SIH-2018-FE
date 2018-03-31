@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AsyncLocalStorage } from 'angular-async-local-storage';
 
 @Component({
   selector: 'app-verify-completed-applications-preview',
@@ -6,24 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./verify-completed-applications-preview.component.css']
 })
 export class VerifyCompletedApplicationsPreviewComponent implements OnInit {
-  changeNameData = {
-    'applicationNumber': 'LJXSDHT9879SDAF8',
-    'applicantName': 'Anshul Sharma',
-    'fatherName_husbandName': 'Satish Kumar',
-    'aadharNumber': 600487597412,
-    'mobileNumber': '9996999200',
-    'email': 'anshulsharma0888@gmail.com',
-    'paymentStatus': 'Paid',
-    'permanentAddress': 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana',
-    'connectionAddress': 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana',
-    'uploadedDocument': 'Passport',
-    'connectionCategory': 'Domestic Supply (DS)',
-    'connectionType': 'Permanent',
-    'voltageSupply': '3 Phase'
-  };
-  constructor() { }
-
+  changeNameData;
+  constructor(private route: ActivatedRoute, private localStorage: AsyncLocalStorage, private httpClient: HttpClient) { }
+  index;
+  applicationList;
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.index = +params['id'];
+        console.log(this.index);
+      }
+    );
+
+
+
+    this.localStorage.getItem('user').subscribe(
+      (userLocal) => {
+        console.log(userLocal);
+        this.httpClient.post('https://api-egn.nvixion.tech/employee/apps', userLocal.token, {headers: new HttpHeaders({
+            'x-access-token': userLocal.token
+          })}).subscribe(
+          (response) => {
+            console.log(response);
+            this.changeNameData = response[this.index];
+            console.log(this.changeNameData);
+          }
+        );
+      }
+    );
+
   }
 
 }

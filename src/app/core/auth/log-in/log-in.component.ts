@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
 import { Router } from '@angular/router';
 import { AsyncLocalStorage } from 'angular-async-local-storage';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-log-in',
@@ -12,13 +13,23 @@ import { AsyncLocalStorage } from 'angular-async-local-storage';
 export class LogInComponent implements OnInit {
   loginForm: FormGroup;
   isLoggedIn: boolean;
-  constructor(private loginService: LoginService, private router: Router, private localStorage: AsyncLocalStorage) { }
+  constructor(private loginService: LoginService, private router: Router, private localStorage: AsyncLocalStorage, private httpClient: HttpClient) { }
   ngOnInit() {
     this.loginForm = new FormGroup({
       'username': new FormControl(null),
       'password': new FormControl(null)
     });
-    this.isLoggedIn = false;
+
+    this.localStorage.getItem('user').subscribe(
+      (userlocal) => {
+        if (userlocal) {
+          this.isLoggedIn = true;
+          this.loginService.userLoggedIn.next(true);
+        } else {
+          this.isLoggedIn = false;
+        }
+      }
+    );
   }
 
   onLogin() {
@@ -28,14 +39,21 @@ export class LogInComponent implements OnInit {
       response => {
         const responseData = JSON.parse(JSON.stringify(response));
         console.log(responseData);
-        if ( responseData.success === true ) {
-          this.loginService.userLoggedIn.next(this.isLoggedIn); // it will echo the logged in status
-          this.router.navigate(['consumer/home']);
-          this.localStorage.setItem('user', { email: responseData.email, token: responseData.token}).subscribe(
-            (data) => console.log(data)
+        if (responseData.success) {
+
+          this.httpClient.get('https://api-egn.nvixion.tech/auth/status', {headers: new HttpHeaders({'x-access-token': responseData.token})}).subscribe(
+            (authStatus) => {
+              console.log(authStatus);
+              this.loginService.userType.next('a');
+              this.localStorage.setItem('user', {email: authStatus.data.email, token: responseData.token, type: authStatus.data.type}).subscribe(
+                (localData) => {
+                  console.log(localData);
+                });
+            }
           );
+          this.loginService.userLoggedIn.next(true);
+          this.router.navigate(['consumer/home']);
         }
-        console.log(response);
       },
       error => {
         console.log(error);

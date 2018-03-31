@@ -9,7 +9,7 @@ import { ConsumerService } from '../../../consumer.service';
   styleUrls: ['./new-application-preview.component.css']
 })
 export class NewApplicationPreviewComponent implements OnInit {
-  newApplicationPreview;
+  newApplicationPreview: any;
   // = {
   //   'applicantName': 'Anshul Sharma',
   //   'fatherName_husbandName': 'Satish Kumar',

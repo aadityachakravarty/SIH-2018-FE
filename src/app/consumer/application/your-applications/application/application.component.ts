@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ConsumerService } from '../../../consumer.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AsyncLocalStorage } from 'angular-async-local-storage';
 
 @Component({
   selector: 'app-application',
@@ -9,7 +11,7 @@ import { ConsumerService } from '../../../consumer.service';
 })
 export class ApplicationComponent implements OnInit {
   closeConnectionData;
-  constructor(private route: ActivatedRoute, private consumerService: ConsumerService) { }
+  constructor(private route: ActivatedRoute, private consumerService: ConsumerService, private localStorage: AsyncLocalStorage, private httpClient: HttpClient) { }
   id: number;
   ngOnInit() {
     this.route.params.subscribe(
@@ -19,11 +21,22 @@ export class ApplicationComponent implements OnInit {
     );
     console.log(this.id);
 
-    this.consumerService.onMyApplication().subscribe(
-      (data) => {
-        this.closeConnectionData = data[this.id];
+    this.localStorage.getItem('user').subscribe(
+      (userLocal) => {
+        console.log(userLocal);
+        this.httpClient.post('https://api-egn.nvixion.tech/employee/apps', userLocal.token, {headers: new HttpHeaders({
+            'x-access-token': userLocal.token
+          })}).subscribe(
+          (response) => {
+            console.log(response);
+            this.closeConnectionData = response[this.id];
+          }
+        );
       }
     );
+
+
+
   }
 
 }

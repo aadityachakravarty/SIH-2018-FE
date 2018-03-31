@@ -7,6 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Subject } from 'rxjs/Subject';
 import { ConsumerService } from '../../consumer.service';
+import { AsyncLocalStorage } from 'angular-async-local-storage';
 
 interface Marker {
   name?: string;
@@ -27,6 +28,7 @@ export class NewApplicationComponent implements OnInit {
   permanentAddressDropdown = 'Select Address';
   permanentAddressValue = 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana';
 
+  newApplicationPreview;
 
 
   lat: number;
@@ -40,12 +42,11 @@ export class NewApplicationComponent implements OnInit {
       lng: 79.327594
     }
   ]
-  mapOrigin = '151 Idgah Colony Model Town Panipat';
-  mapDestination = 'New Delhi'
+
   mapAdd;
   mapUrl;
   safeMapUrl;
-
+  localUserData;
 
   // mapUrl = '//www.google.com/maps/embed/v1/directions?origin=' + this.mapOrigin +
   //   '&destination=' + this.mapDestination + '&zoom=13&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
@@ -57,14 +58,14 @@ export class NewApplicationComponent implements OnInit {
   onMap() {
     if(this.mapAdd === '') {
       this.onMapDefault();
-    }else {
+    } else {
       this.mapUrl = '//www.google.com/maps/embed/v1/place?q=' + this.mapAdd +
         '&zoom=17&attribution_source=Google+Maps+Embed+API&attribution_web_url=https://developers.google.com/maps/documentation/embed/&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E';
       this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
     }
   }
 
-  constructor(private router: Router, private route: ActivatedRoute, public sanatizer: DomSanitizer, private httpClient: HttpClient, private consumerService: ConsumerService) { }
+  constructor(private router: Router, private route: ActivatedRoute, public sanatizer: DomSanitizer, private httpClient: HttpClient, private consumerService: ConsumerService, private localStorage: AsyncLocalStorage) { }
 
   ngOnInit() {
     this.newApplicationForm = new FormGroup({
@@ -122,9 +123,26 @@ export class NewApplicationComponent implements OnInit {
   }
 
   onNewApplicationForm() {
-    console.log(this.newApplicationForm);
-    this.consumerService.newApplicationFormData.next(this.newApplicationForm.value);
-    this.router.navigate(['preview'], {relativeTo: this.route});
+    console.log(this.newApplicationForm.value);
+    this.newApplicationPreview = this.newApplicationForm.value;
+    // this.consumerService.newApplicationFormData.next(this.newApplicationForm.value);
+  }
+
+  onFinalSubmit() {
+    this.localStorage.getItem('user').subscribe(
+      (local) => {
+        this.localUserData = local;
+        console.log(local);
+        this.httpClient.post('https://api-egn.nvixion.tech/connection/new', this.newApplicationForm.value, {headers: new HttpHeaders({
+            'x-access-token': local.token
+          })}).subscribe(
+          (newAppData) => {
+            console.log(newAppData);
+          }
+        );
+      }
+    );
+
   }
 
   private getUserLocation() {

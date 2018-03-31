@@ -2,23 +2,6 @@
 
   <div class="jumbotron">
     <form [formGroup]="newApplicationForm" (ngSubmit)="onNewApplicationForm();">
-      <!--<div class="row">-->
-        <!--<div class="gMap">-->
-          <!--<agm-map [latitude]="lat" [longitude]="lng" style="height: 100%">-->
-            <!--<agm-direction *ngIf="dir" [origin]="dir.origin" [destination]="dir.destination"></agm-direction>-->
-            <!--<agm-marker [latitude]="lat" [longitude]="lng">-->
-              <!--<agm-info-window>-->
-                <!--<p>You are here!</p>-->
-              <!--</agm-info-window>-->
-            <!--</agm-marker>-->
-            <!--<agm-marker *ngFor="let m of markers;let i = index" (markerClick)="clickedMarker(m, i)" [latitude]="m.lat"-->
-                        <!--[longitude]="m.lng">-->
-              <!--<agm-info-window><strong>{{m.name}}</strong></agm-info-window>-->
-            <!--</agm-marker>-->
-          <!--</agm-map>-->
-        <!--</div>-->
-      <!--</div>-->
-
       <div class="row">
 
         <iframe [src]="safeMapUrl" style="width: 100%;min-height: 40vh;overflow: unset" scrolling="no" allowfullscreen>
@@ -204,10 +187,195 @@
       <br>
       <div class="row">
         <div class="col-sm-5 offset-sm-3">
-          <button type="submit" class="btn btn-md btn-block btn-success waves-light" mdbRippleRadius>Success</button>
+          <button type="submit" class="btn btn-md btn-block btn-success waves-light" data-toggle="modal" data-target="#basicExample" (click)="demoBasic.show()" mdbRippleRadius>Success</button>
         </div>
       </div>
 
     </form>
   </div>
 </div>
+
+
+<!--Preview Modal-->
+
+<div mdbModal #demoBasic="mdb-modal" class="modal fade" id="basicExample" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Application Preview</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="demoBasic.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Applicant's Name:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.applicantName}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Father's Name/ Husband's Name:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.fatherName_husbandName}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Aadhar Number:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.aadharNumber}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Mobile Number:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.mobileNumber}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>E-mail:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.email}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Permanent Address:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.permanentAddress}}
+                  </div>
+                </div>
+                <!--/Row-->
+              </div>
+
+              <div class="col-sm-6">
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Connection Address:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.connectionAddress}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Connection Address Land Document:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.connectionAddressLandDocument}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Load Demand:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.loadDemand}} KW
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Connection Category:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.connectionCategory}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Connection Type:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.connectionType}}
+                  </div>
+                </div>
+                <!--/Row-->
+
+                <br>
+
+                <!--Row-->
+                <div class="row">
+                  <div class="col-sm-4 offset-sm-1">
+                    <strong>Voltage Supply:</strong>
+                  </div>
+                  <div class="col-sm-6">
+                    {{newApplicationPreview?.voltageSupply}}
+                  </div>
+                </div>
+                <!--/Row-->
+              </div>
+            </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger btn-md waves-light" data-dismiss="modal" (click)="demoBasic.hide()" mdbRippleRadius>Close</button>
+        <button type="button" class="btn btn-success btn-md waves-light" (click)="onFinalSubmit();demoBasic.hide();" mdbRippleRadius>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--/Preview Modal-->

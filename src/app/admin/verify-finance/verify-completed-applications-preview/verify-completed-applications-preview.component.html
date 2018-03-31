@@ -3,7 +3,7 @@
   <div class="jumbotron">
     <div class="row container-fluid">
       <div class="col-sm-6">
-        <h4 class="brown-text"><strong>Status: </strong>Approved</h4>
+        <h4 class="brown-text"><strong>Status: </strong></h4>
       </div>
       <div class="col-sm-2 offset-sm-4">
         <a [routerLink]="'../'" class="btn btn-md btn-outline-primary" mdbRippleRadius>Back</a>
@@ -21,7 +21,7 @@
             <strong>Application Number:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.applicationNumber}}
+            {{changeNameData?.ApplicationID}}
           </div>
         </div>
         <!--/Row-->
@@ -34,20 +34,7 @@
             <strong>Applicant's Name:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.applicantName}}
-          </div>
-        </div>
-        <!--/Row-->
-
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-5 offset-sm-1">
-            <strong>Father's Name/ Husband's Name:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{changeNameData.fatherName_husbandName}}
+            {{changeNameData?.consumerDetails.applicantName}}
           </div>
         </div>
         <!--/Row-->
@@ -60,25 +47,13 @@
             <strong>Aadhar Number:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.aadharNumber}}
+            {{changeNameData?.consumerDetails.aadharNumber}}
           </div>
         </div>
         <!--/Row-->
 
         <br>
 
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-5 offset-sm-1">
-            <strong>Mobile Number:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{changeNameData.mobileNumber}}
-          </div>
-        </div>
-        <!--/Row-->
-
-        <br>
 
         <!--Row-->
         <div class="row">
@@ -86,7 +61,7 @@
             <strong>E-mail:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.email}}
+            {{changeNameData?.consumerDetails.emailAddress}}
           </div>
         </div>
         <!--/Row-->
@@ -99,7 +74,7 @@
             <strong>Payment Status:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.paymentStatus}}
+            Paid
           </div>
         </div>
         <!--/Row-->
@@ -114,36 +89,11 @@
             <strong>Permanent Address:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.permanentAddress}}
+            {{changeNameData?.consumerDetails.permanentAddress}}
           </div>
         </div>
         <!--/Row-->
 
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-5 offset-sm-1">
-            <strong>Connection Address:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{changeNameData.connectionAddress}}
-          </div>
-        </div>
-        <!--/Row-->
-
-        <br>
-
-        <!--Row-->
-        <div class="row">
-          <div class="col-sm-5 offset-sm-1">
-            <strong>Uploaded Document:</strong>
-          </div>
-          <div class="col-sm-6">
-            {{changeNameData.uploadedDocument}}
-          </div>
-        </div>
-        <!--/Row-->
 
         <br>
 
@@ -153,7 +103,7 @@
             <strong>Connection Category:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.connectionCategory}}
+            {{changeNameData?.consumerDetails.connectionCategory}}
           </div>
         </div>
         <!--/Row-->
@@ -166,7 +116,7 @@
             <strong>Connection Type:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.connectionType}}
+            {{changeNameData?.consumerDetails.connectionType}}
           </div>
         </div>
         <!--/Row-->
@@ -179,7 +129,7 @@
             <strong>Voltage Supply:</strong>
           </div>
           <div class="col-sm-6">
-            {{changeNameData.voltageSupply}}
+            {{changeNameData?.consumerDetails.voltageSupply}}
           </div>
         </div>
         <!--/Row-->
@@ -200,7 +150,7 @@
     <hr>
     <div class="row">
       <div class="col-sm-4 offset-sm-1 my-3">
-        <button class="btn btn-md btn-block btn-success btn-lg waves-light" type="button" role="button"
+        <button class="btn btn-md btn-block btn-success btn-lg waves-light" type="button" role="button"  data-toggle="modal" data-target="#basicExample" (click)="approve.show()"
                 mdbRippleRadius>Approve
         </button>
       </div>
@@ -214,3 +164,31 @@
   </div>
 
 </div>
+
+
+<!--Approve Modal-->
+
+<div mdbModal #approve="mdb-modal" class="modal fade bottom" id="approveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-frame modal-top" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <p class="h4 green-text text-center" style="width: 100%;">Success!</p>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 offset-sm-2">
+              <p>Application for new connection approved.</p>
+            </div>
+            <div class="col-sm-2 ml-auto">
+              <a [routerLink]="'../'" type="button" class="btn btn-outline-success waves-light" data-dismiss="modal" (click)="approve.hide()" mdbRippleRadius>Close</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--/Approve Modal-->
