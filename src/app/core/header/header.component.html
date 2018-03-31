@@ -4,9 +4,18 @@
 
   <!-- Navbar brand -->
     <logo>
-      <ng-template [ngIf]="userType !== 'employee'">
+      <ng-template [ngIf]="userType === 'consumer'">
         <a class="navbar-brand" [routerLink]="'/'">Energion</a>
       </ng-template>
+
+      <ng-template [ngIf]="userType === 'admin-ver'">
+        <a class="navbar-brand" [routerLink]="'/admin/verify-new-applications'">Energion</a>
+      </ng-template>
+
+      <ng-template [ngIf]="userType === 'admin-tec'">
+        <a class="navbar-brand" [routerLink]="'/admin/tech'">Energion</a>
+      </ng-template>
+
       <ng-template [ngIf]="userType === 'employee'">
         <a class="navbar-brand" [routerLink]="'/employee/home'">Energion</a>
       </ng-template>
@@ -17,6 +26,8 @@
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
+
+
       <!--Consumer Header Links-->
       <ng-template [ngIf]="userType === 'consumer' && loggedIn">
         <li class="nav-item" routerLinkActive="active">
@@ -49,6 +60,8 @@
         </li>
       </ng-template>
       <!--/Consumer Header Links-->
+
+
 
       <!--Employee Header Links-->
       <ng-template [ngIf]="userType === 'employee'">
@@ -85,6 +98,28 @@
 
       </ng-template>
       <!--/Employee Header Links-->
+
+
+
+      <!--Admin Header Links-->
+      <ng-template [ngIf]="userType === 'admin-ver'">
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light" [routerLink]="'/admin/verify-new-applications'" mdbRippleRadius>New Applications</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light" [routerLink]="'/admin/verify-completed-applications'" mdbRippleRadius>Completed Applications</a>
+        </li>
+
+      </ng-template>
+
+      <ng-template [ngIf]="userType === 'admin-tec'">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link waves-light" [routerLink]="'/admin/tech'" mdbRippleRadius>Tech Dept</a>
+        </li>
+
+      </ng-template>
+      <!--/Admin Header Links-->
 
 
     </ul>
@@ -126,6 +161,24 @@
         <!--/Profile Dropdown-->
       </ng-template>
       <!--/Other Links for Employee-->
+
+      <!--Other Links for Admin-->
+      <ng-template [ngIf]="loggedIn && userType==='admin-ver' ">
+        <!--<li class="nav-item" routerLinkActive="active">-->
+          <!--<a class="nav-link waves-light" [routerLink]="'/employee/notifications'" mdbRippleRadius><i class="fa fa-bell" aria-hidden="true"></i> <sup><span class="badge blue" style="font-size: 10px; margin-left: -11px;">2</span></sup></a>-->
+        <!--</li>-->
+
+        <!--Profile Dropdown -->
+        <li class="nav-item dropdown" dropdown>
+          <a dropdownToggle mdbRippleRadius type="button" class="nav-link dropdown-toggle waves-light" mdbRippleRadius><img class="rounded-circle" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg" height="28px" alt=" "></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary dropdown-menu-right" role="menu">
+            <a class="dropdown-item waves-light" mdbRippleRadius>Profile</a>
+            <a class="dropdown-item waves-light" (click)="onSignOut();" mdbRippleRadius>Sign Out</a>
+          </div>
+        </li>
+        <!--/Profile Dropdown-->
+      </ng-template>
+      <!--/Other Links for Admin-->
 
       <!--Log In & Sign Up-->
       <ng-template [ngIf]="!loggedIn">

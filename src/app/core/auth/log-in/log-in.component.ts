@@ -27,6 +27,7 @@ export class LogInComponent implements OnInit {
     this.loginService.onLogin(this.loginForm.value).subscribe(
       response => {
         const responseData = JSON.parse(JSON.stringify(response));
+        console.log(responseData);
         if ( responseData.success === true ) {
           this.loginService.userLoggedIn.next(this.isLoggedIn); // it will echo the logged in status
           this.router.navigate(['consumer/home']);

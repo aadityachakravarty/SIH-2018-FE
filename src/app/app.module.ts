@@ -11,11 +11,12 @@ import { LoginService } from './core/auth/login.service';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { HttpClientModule } from '@angular/common/http';
-import { AdminModule } from './admin/admin.module';
 import { } from '@types/googlemaps';
 import { EstimateService } from './core/main-home/estimate.service';
 import { ConsumerService } from './consumer/consumer.service';
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
+import { AdminModule } from './admin/admin.module';
+import { AdminService } from './admin/admin.service';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { AsyncLocalStorageModule } from 'angular-async-local-storage';
   providers: [
     LoginService,
     EstimateService,
-    ConsumerService
+    ConsumerService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })

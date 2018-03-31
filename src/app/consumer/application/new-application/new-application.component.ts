@@ -5,6 +5,8 @@ import {} from '@types/googlemaps';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Subject';
+import { ConsumerService } from '../../consumer.service';
 
 interface Marker {
   name?: string;
@@ -24,6 +26,8 @@ export class NewApplicationComponent implements OnInit {
   voltageSupplyDropdown = 'Select Option';
   permanentAddressDropdown = 'Select Address';
   permanentAddressValue = 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana';
+
+
 
   lat: number;
   lng: number;
@@ -60,7 +64,7 @@ export class NewApplicationComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router, private route: ActivatedRoute, public sanatizer: DomSanitizer, private httpClient: HttpClient) { }
+  constructor(private router: Router, private route: ActivatedRoute, public sanatizer: DomSanitizer, private httpClient: HttpClient, private consumerService: ConsumerService) { }
 
   ngOnInit() {
     this.newApplicationForm = new FormGroup({
@@ -119,6 +123,7 @@ export class NewApplicationComponent implements OnInit {
 
   onNewApplicationForm() {
     console.log(this.newApplicationForm);
+    this.consumerService.newApplicationFormData.next(this.newApplicationForm.value);
     this.router.navigate(['preview'], {relativeTo: this.route});
   }
 

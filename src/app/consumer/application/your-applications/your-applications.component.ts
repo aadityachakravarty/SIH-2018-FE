@@ -8,16 +8,16 @@ import { ConsumerService } from '../../consumer.service';
   styleUrls: ['./your-applications.component.css']
 })
 export class YourApplicationsComponent implements OnInit {
-  yourApplicationsData = [
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' },
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' },
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' },
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' }
-  ];
+  yourApplicationsData;
   constructor(private router: Router, private route: ActivatedRoute, private consumerService: ConsumerService) { }
 
   ngOnInit() {
-    this.consumerService.onMyApplication();
+    this.consumerService.onMyApplication().subscribe(
+      (data) => {
+        console.log(data);
+        this.yourApplicationsData = data;
+      }
+    );
   }
 
   onViewApplication(id: number) {

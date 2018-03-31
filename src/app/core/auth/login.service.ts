@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AsyncLocalStorage } from 'angular-async-local-storage';
 
 @Injectable()
 export class LoginService {
 
   userLoggedIn = new Subject();
+  localData;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private localStorage: AsyncLocalStorage) { }
 
   onGet() {
     this.httpClient.get('https://api.nvixion.tech/').subscribe(
@@ -22,7 +24,13 @@ export class LoginService {
   }
 
   onLogOut() {
-    return this.httpClient.get('https://api-egn.nvixion.tech');
+    this.localStorage.getItem('user').subscribe(
+      (tokenData) => {
+        this.localData = tokenData.token;
+        this.localStorage.clear().subscribe(() => {});
+      }
+    );
+    return this.httpClient.get('https://api-egn.nvixion.tech/auth/logout', { headers: new HttpHeaders({'x-access-token': this.localData})});
   }
 
   onSignUp(signUpData) {

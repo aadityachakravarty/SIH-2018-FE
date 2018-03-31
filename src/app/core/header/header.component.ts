@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     this.localStorage.getItem('user').subscribe(
       (data) => {
         if (data.token) {
-          this.loggedIn = true;
+          if (data.token) {this.loggedIn = true;}
         } else {
           this.loggedIn = false;
         }
@@ -37,16 +37,11 @@ export class HeaderComponent implements OnInit {
         this.loggedIn = false;
         this.loginService.userLoggedIn.next(this.loggedIn);
         this.router.navigate(['/']);
-        this.localStorage.removeItem('user').subscribe(
-          (data) => {
-            console.log(data);
-            console.log('signedOutToken');
-          }
-        );
         console.log(response);
       },
       error => {
         console.log(error);
+        console.log('its error');
       }
     );
   }

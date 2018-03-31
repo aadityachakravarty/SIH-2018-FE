@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { EstimateService } from './estimate.service';
 
@@ -24,8 +24,9 @@ export class MainHomeComponent implements OnInit {
 
   ngOnInit() {
     this.costEstimationForm = new FormGroup({
-      'address': new FormControl(null),
-      'capacity': new FormControl(null)
+      'address': new FormControl(null, [Validators.required]),
+      'capacity': new FormControl(null),
+      'phone': new FormControl(null)
     });
   }
 
@@ -33,7 +34,8 @@ export class MainHomeComponent implements OnInit {
     const address = this.costEstimationForm.value;
       console.log(address);
     this.estimateService.onEstimate(address).subscribe(
-      response => {
+      resData => {
+        const response = JSON.parse(JSON.stringify(resData));
         console.log(response);
         this.mapOrigin = response.coordinates.customer;
         this.mapDestination = response.coordinates.transformer;

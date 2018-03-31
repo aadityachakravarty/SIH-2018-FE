@@ -3,7 +3,7 @@
 
     <div class="col-md-4 my-4" *ngFor="let application of yourApplicationsData; let i = index;">
       <!--Card-->
-      <div class="card card-cascade narrower hoverable hm-zoom">
+      <div class="card card-cascade narrower hoverable hm-zoom" style="height: 100%;">
 
         <!--Card image-->
         <div class="view overlay hm-white-slight waves-light" mdbRippleRadius>
@@ -17,10 +17,10 @@
         <!--Card content-->
         <div class="card-body">
           <!--Title-->
-          <h4 class="card-title h4-responsive">{{application.name}}</h4>
+          <h4 class="card-title h4-responsive">{{application.consumerDetails.applicantName}}</h4>
           <hr class="bg-success">
           <!--Text-->
-          <p class="card-text text-justify"><strong>Address:</strong> {{application.connectionAddress}}</p>
+          <p class="card-text text-justify"><strong>Address:</strong> {{application.consumerDetails.connectionAddress}}</p>
           <a class="btn btn-md light-green darken-4 waves-light pull-left" (click)="onViewApplication(i);" mdbRippleRadius>View</a>
           <a type="button" [routerLink]="'/consumer-tracking'" class="btn btn-outline-success btn-md pull-right" mdbRippleRadius>track</a>
         </div>
