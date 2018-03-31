@@ -45,7 +45,7 @@ export class LogInComponent implements OnInit {
             (authStatus) => {
               console.log(authStatus);
               this.loginService.userType.next('a');
-              this.localStorage.setItem('user', {email: authStatus.data.email, token: responseData.token, type: authStatus.data.type}).subscribe(
+              this.localStorage.setItem('user', {email: authStatus.data.email, token: responseData.token, type: authStatus.data.type, username: this.loginForm.get(['username']).value}).subscribe(
                 (localData) => {
                   console.log(localData);
                 });

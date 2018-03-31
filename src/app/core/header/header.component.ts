@@ -37,6 +37,11 @@ export class HeaderComponent implements OnInit {
             this.loggedIn = true;
             this.userType = data.type;
             console.log(this.userType + "asdfaf");
+            if(this.userType === 'admin') {
+              this.router.navigate(['admin/verify-new-applications']);
+            } else if (this.userType === 'consumer') {
+              this.router.navigate(['consumer/home']);
+            }
           }
         } else {
           this.loggedIn = false;

@@ -57,4 +57,19 @@ export class VerifyNewApplicationsPreviewComponent implements OnInit {
 
   }
 
+  onReject() {
+    this.localStorage.getItem('user').subscribe(
+      (userLocal) => {
+        console.log(userLocal);
+        this.httpClient.post('https://api-egn.nvixion.tech/employee/notverified', {applicationId: this.changeNameData.ApplicationID}, {headers: new HttpHeaders({
+            'x-access-token': userLocal.token
+          })}).subscribe(
+          (response) => {
+            console.log(response);
+          }
+        );
+      }
+    );
+  }
+
 }

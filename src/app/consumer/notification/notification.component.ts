@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AsyncLocalStorage } from 'angular-async-local-storage';
 
 @Component({
   selector: 'app-notification',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private localStorage: AsyncLocalStorage) { }
+notiUser;
   ngOnInit() {
+    this.localStorage.getItem('user').subscribe(
+      (data) => {
+        this.notiUser = data.username;
+      }
+    );
   }
 
 }
