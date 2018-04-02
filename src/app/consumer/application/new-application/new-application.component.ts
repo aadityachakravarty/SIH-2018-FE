@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {} from '@types/googlemaps';
@@ -64,7 +64,13 @@ export class NewApplicationComponent implements OnInit {
       this.safeMapUrl = this.sanatizer.bypassSecurityTrustResourceUrl(this.mapUrl);
     }
   }
+fileName: any;
+  @ViewChild('file') file: any;
 
+  onShowFile() {
+    this.fileName = this.file.files;
+    console.log(this.fileName);
+  }
   constructor(private router: Router, private route: ActivatedRoute, public sanatizer: DomSanitizer, private httpClient: HttpClient, private consumerService: ConsumerService, private localStorage: AsyncLocalStorage) { }
 
   ngOnInit() {
@@ -82,7 +88,7 @@ export class NewApplicationComponent implements OnInit {
       'connectionType': new FormControl(null),
       'voltageSupply': new FormControl(null)
     });
-
+this.fileName = 'Browse';
     this.getUserLocation();
     console.log('running');
     this.httpClient.get('https://maps.googleapis.com/maps/api/geocode/json?address=Hyderabad&key=AIzaSyCTxHU9LQsmd2QU2Fkiqq1i0G4hav6zM8E').subscribe(

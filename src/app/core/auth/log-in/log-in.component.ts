@@ -43,9 +43,10 @@ export class LogInComponent implements OnInit {
 
           this.httpClient.get('https://api-egn.nvixion.tech/auth/status', {headers: new HttpHeaders({'x-access-token': responseData.token})}).subscribe(
             (authStatus) => {
-              console.log(authStatus);
+              const safeAuthStatus = JSON.parse(JSON.stringify(authStatus));
+              console.log(safeAuthStatus);
               this.loginService.userType.next('a');
-              this.localStorage.setItem('user', {email: authStatus.data.email, token: responseData.token, type: authStatus.data.type, username: this.loginForm.get(['username']).value}).subscribe(
+              this.localStorage.setItem('user', {email: safeAuthStatus.data.email, token: responseData.token, type: safeAuthStatus.data.type, username: this.loginForm.get(['username']).value}).subscribe(
                 (localData) => {
                   console.log(localData);
                 });
