@@ -17,6 +17,7 @@ import { ConsumerService } from './consumer/consumer.service';
 import { AsyncLocalStorageModule } from 'angular-async-local-storage';
 import { AdminModule } from './admin/admin.module';
 import { AdminService } from './admin/admin.service';
+import { TokenService } from './token.service';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AdminService } from './admin/admin.service';
     LoginService,
     EstimateService,
     ConsumerService,
-    AdminService
+    AdminService,
+    TokenService
   ],
   bootstrap: [AppComponent]
 })

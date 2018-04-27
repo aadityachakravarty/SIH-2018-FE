@@ -9,9 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ApplicationListComponent implements OnInit {
   applicationList = [
     { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' },
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' },
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' },
-    { name: 'Anshul Sharma', connectionAddress: 'L-482, Ram Lal Chowk, Model Town, Panipat, Haryana' }
+    { name: 'Shivam Arora', connectionAddress: '55, Moti Nagar, New Delhi' },
+    { name: 'Lokesh Manchanda', connectionAddress: '2, Sector - 7 Karnal, Haryana' },
+    { name: 'Lakshay Chhabra', connectionAddress: '42, Sector - 25, Huda, Panipat, Haryana' },
+    { name: 'Aaditya Chakravarty', connectionAddress: 'R-82, Ganga Trevini, Rohini, New Delhi' }
   ];
   constructor(private router: Router, private route: ActivatedRoute) { }
 
